@@ -1,0 +1,16 @@
+{
+  "DefaultSettings": {
+    "Width": 100,
+    "FontSize": 12,
+    "fontFamily": "Arial",
+    "BackgroundColor": "#FFFFFF",
+    "BorderColor": "#000000",
+    "BorderWidth": 1,
+    "BorderStyle": "NONE",
+    "BorderSide": "ALL",
+    "Align": "CENTER",
+    "Direction": "PARENT",
+    "Margin": 0,
+    "Padding": 0
+  }
+}

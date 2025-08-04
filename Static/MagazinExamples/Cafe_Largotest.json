@@ -1,0 +1,343 @@
+﻿{
+  "Layout": {
+    "Configuration": {
+      "DefaultTagStyles": {
+        "Paragraph": {
+          "FontFamily": "Arial",
+          "FontSize": 16,
+          "Color": "#333333"
+        },
+        "Heading1": {
+          "FontFamily": "Arial",
+          "FontSize": 31,
+          "Color": "#111111"
+        },
+        "Heading2": {
+          "FontFamily": "Arial",
+          "FontSize": 28,
+          "Color": "#222222"
+        },
+        "Heading3": {
+          "FontFamily": "Arial",
+          "FontSize": 25,
+          "Color": "#333333"
+        },
+        "Heading4": {
+          "FontFamily": "Arial",
+          "FontSize": 18,
+          "Color": "#444444"
+        },
+        "Links": {
+          "Bold": true,
+          "Italic": false,
+          "Underline": true,
+          "Color": "#1a73e8"
+        },
+        "Buttons": {
+          "FontFamily": "Arial",
+          "FontSize": 16,
+          "Bold": true,
+          "Italic": false,
+          "Underline": false,
+          "Width": "50%",
+          "ButtonRadius": 4,
+          "BackgroundColor": "#1a73e8",
+          "BorderWidth": 0,
+          "BorderColor": "transparent"
+        }
+      },
+      "DefaultGeneralStyles": {
+        "LineHeight": 1,
+        "Direction": "ltr"
+      },
+      "Spacing": {
+        "PaddingEnabled": true,
+        "PaddingTop": 55,
+        "PaddingBottom": 40
+      },
+      "BodyColor": "lightskyblue",
+      "BackgroundColor": "lightgray",
+      "BodyWidth": "660px"
+    },
+    "Sections": [
+      {
+        "Name": "sec1",
+        "Type": "SECTION",
+        "Configuration": {
+          "BodyColor": "#FFFFFF",
+          "Spacing": {
+            "PaddingEnabled": true,
+            "PaddingTop": 0,
+            "PaddingBottom": 24,
+            "MarginEnabled": true,
+            "MarginLeft": 35,
+            "MarginRight":15,
+            "MarginTop": 20,
+            "MarginBottom": 40
+          }
+        },
+        "Objects": [
+          {
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h1 style=\"color:black;\">Hello, I am a Text object.</h1>",
+              "Width": "50%",
+              "TextAlign": "left",
+              "BackgroundColor": "lightgray",
+              "Direction": "LTR",
+              "Spacing": {
+                "PaddingEnabled": true,
+                "paddingTop": 0,
+                "PaddingBottom": 60,
+                "PaddingLeft": 20
+              },
+              "Border": {
+                "BorderEnabled": true,
+                "Sides": [
+                  {
+                    "BorderSide": "BOTTOM",
+                    "BorderWidth": 1,
+                    "BorderColor": "red",
+                    "BorderStyle": "SOLID"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      //{
+      //  "Name": "sec2",
+      //  "Type": "SECTION",
+      //  "Configuration": {
+      //   // "BackgroundColor": "#F4F4F4",
+      //    "BodyColor": "#FFFFFF",
+      //    "Spacing": {
+      //      "PaddingEnabled": true,
+      //      "paddingTop": 0,
+      //      "PaddingBottom": 24,
+      //      "PaddingLeft": 23,
+      //      "PaddingRight": 23,
+      //      "MarginEnabled": true,
+      //      "MarginLeft": 16,
+      //      "MarginRight": 16
+      //    }
+      //  },
+      //  "Objects": [
+      //    {
+      //      "Id": "",
+      //      "Name": "",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<p style=\"caret-color: rgb(0, 0, 0); font-variant-caps: normal; font-weight: 400; letter-spacing: normal;text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"><strong><span style=\"color:#000000;\"><span style=\"line-height:24px;font-size: 16px;font-family:Helvetica Neue, Helvetica, Arial, Verdana, sans-serif\">A Key Largo Destination — 3 Restaurants, 3 Bars, and 3 Incredible Happy Hours!</span></span></strong></p>",
+      //        "Width": "100%",
+      //        "TextAlign": "CENTER",
+      //        "Direction": "LTR",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 12,
+      //          "PaddingBottom": 0
+      //        }
+      //      }
+      //    },
+      //    {
+      //      "Id": "",
+      //      "Name": "",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<p style=\"caret-color: rgb(0, 0, 0); font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: center; text-indent: 0px; text-transform: none; white-space: normal;word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"><strong><span style=\"line-height:24px;font-size: 16px;font-family:Helvetica Neue, Helvetica, Arial, Verdana, sans-serif;color:#000000;\">Locally owned and operated for over 30 years.</span></strong></p>",
+      //        "Width": "100%",
+      //        "TextAlign": "CENTER",
+      //        "Direction": "LTR",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 0,
+      //          "PaddingBottom": 0,
+      //          "MarginEnabled": true,
+      //          "MarginBottom": 24
+      //        }
+      //      }
+      //    },
+      //    {
+      //      "Id": "",
+      //      "Name": "",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<p style=\"caret-color: rgb(0, 0, 0); font-variant-caps: normal; font-weight: 400; letter-spacing: normal;text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"><span style=\"line-height:24px;font-size:16px;font-family:Helvetica Neue, Helvetica, Arial, Verdana, sans-serif;color:#000000;\"> DiGiorgio’s Café Largo and Bayside Grille are serving up happy hour specials, Sunday Brunch, refreshing cocktails, and great food all summer long!</span></p>",
+      //        "Width": "100%",
+      //        "TextAlign": "CENTER",
+      //        "Direction": "ltr",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 0
+      //        }
+      //      }
+      //    },
+      //    {
+      //      "Id": "blackBtn",
+      //      "Name": "",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<a href=\"https://keylargorestaurants.com/\" target=\"_blank\" style=\"color:#ffffff;font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;letter-spacing:0px\" rel=\"noreferrer\">View Website Here</a>",
+      //        "Width": "195px",
+      //        "TextAlign": "CENTER",
+      //        "Direction": "ltr",
+      //        "BackgroundColor": "rgb(0, 0, 0)",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 18,
+      //          "PaddingBottom": 18,
+      //          "paddingLeft": 28,
+      //          "PaddingRight": 28,
+      //          "MarginEnabled": true,
+      //          "MarginBottom": 12,
+      //          "MarginTop": 12
+      //        }
+      //      }
+      //    },
+      //    {
+      //      "Id": "separetor",
+      //      "Name": "",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<br>",
+      //        "Width": "100%",
+      //        "TextAlign": "CENTER",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "MarginEnabled": true,
+      //          "MarginBottom": 20,
+      //          "MarginTop": 10
+      //        },
+      //        "Border": {
+      //          "BorderEnabled": true,
+      //          "Sides": [
+      //            {
+      //              "BorderSide": "bottom",
+      //              "BorderWidth": 2,
+      //              "BorderColor": "rgb(0, 0, 0)",
+      //              "BorderStyle": "SOLID"
+      //            }
+      //          ]
+      //        }
+      //      }
+      //    }
+      //  ]
+      //},
+      //{
+      //  "Name": "sec3",
+      //  "Type": "SECTION",
+      //  "Configuration": {
+      //    //"BackgroundColor": "#F4F4F4",
+      //    "BodyColor": "#FFFFFF",
+      //    "Spacing": {
+      //      "PaddingEnabled": true,
+      //      "PaddingTop": 0,
+      //      "PaddingBottom": 24,
+      //      "MarginEnabled": true,
+      //      "MarginLeft": 16,
+      //      "MarginRight": 16
+      //    }
+      //  },
+      //  "Objects": [
+      //    {
+      //      "Id": "afImage3",
+      //      "Name": "logo1",
+      //      "Type": "IMAGE",
+      //      "Configuration": {
+      //        "ImageUrl": "https://mcusercontent.com/edd3202c818e1f341f7b52405/images/dfd39f9d-b362-7c39-3c80-c70400ff7d37.png",
+      //        "AltText": "Cafe Largo",
+      //        "Width": "45%",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 12,
+      //          "PaddingBottom": 12
+      //        }
+      //      }
+      //    },
+      //    {
+      //      "Id": "afImage4",
+      //      "Type": "IMAGE",
+      //      "Configuration": {
+      //        "ImageUrl": "https://mcusercontent.com/edd3202c818e1f341f7b52405/images/db3ccc8e-dfea-bae8-798e-2b1560ca7267.png",
+      //        "AltText": "Cafe Largo",
+      //        "Width": "100%",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 12,
+      //          "PaddingBottom": 12
+      //        },
+      //        "Link": {
+      //          "LinkEnabled": true,
+      //          "Url": "https://cafelargo.com/",
+      //          "LinkTitle": "bravo"
+      //        }
+      //      }
+      //    }
+      //  ]
+      //},
+      //{
+      //  "Name": "sec4",
+      //  "Type": "SECTION",
+      //  "Configuration": {
+      //   // "BackgroundColor": "#F4F4F4",
+      //    "BodyColor": "#FFFFFF",
+      //    "Spacing": {
+      //      "PaddingEnabled": true,
+      //      "paddingTop": 0,
+      //      "PaddingBottom": 24,
+      //      "PaddingLeft": 23,
+      //      "PaddingRight": 23,
+      //      "MarginEnabled": true,
+      //      "MarginLeft": 16,
+      //      "MarginRight": 16
+      //    }
+      //  },
+      //  "Objects": [
+      //    {
+      //      "Id": "",
+      //      "Name": "Summer Happy Hour",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<h1 style=\"padding:0;margin:0;\"><strong><span style=\"color:rgb(0, 0, 0);line-height:2;\"><span style=\"font-size: 20px;line-height:2;\">Summer Happy Hour</span></span></strong></h1><p style=\"line-height:24px;\"><strong><span style=\"color:rgb(0, 0, 0);line-height:24px;\"><span style=\"font-size: 16px;line-height:24px;\"><span style=\"font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;line-height:24px;\"><span style=\"line-height:24px;\">Monday - Saturday | 4:00 - 7:00</span></span></span></span></strong></p><p style=\"line-height:24px;\">Discounted Cocktails</p><p style=\"line-height:24px;\">Discounted Wines by the glass</p><p>$5.00 Peroni’s</p><p style=\"line-height:24px;\">$10 Happy Hour Food Menu (Bar Bites)</p></div>",
+      //        "Width": "100%",
+      //        "TextAlign": "CENTER",
+      //        "Direction": "ltr",
+      //        "BackgroundColor": "#fff",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingLeft": 16,
+      //          "PaddingRight": 16,
+      //          "MarginEnabled": true,
+      //          "MarginBottom": 60,
+      //          "MarginTop": 65
+      //        }
+      //      }
+      //    },     
+      //    {
+      //      "Id": "blackBtn2",
+      //      "Name": "",
+      //      "Type": "TEXT",
+      //      "Configuration": {
+      //        "TextContent": "<a href=\"https://keylargorestaurants.com/\" target=\"_blank\" style=\"color:#ffffff;font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;letter-spacing:0px\" rel=\"noreferrer\">View Happy Hour Menu</a>",
+      //        "Width": "250px",
+      //        "TextAlign": "CENTER",
+      //        "Direction": "ltr",
+      //        "BackgroundColor": "rgb(0, 0, 0)",
+      //        "Spacing": {
+      //          "PaddingEnabled": true,
+      //          "paddingTop": 18,
+      //          "PaddingBottom": 18,
+      //          "paddingLeft": 28,
+      //          "PaddingRight": 28,
+      //          "MarginEnabled": true,
+      //          "MarginBottom": 12,
+      //          "MarginTop": 12
+      //        }
+      //      }
+      //    }
+      //  ]
+      //}
+    ]
+  }
+}

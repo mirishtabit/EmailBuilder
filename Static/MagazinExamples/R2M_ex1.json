@@ -1,0 +1,494 @@
+﻿{
+  "Layout": {
+    "FontResources": [
+
+    ],
+    "Configuration": {
+      "DefaultTagStyles": {
+        "Paragraph": {
+          "FontFamily": "Arial",
+          "FontSize": 22,
+          "Color": "#333333"
+        },
+        "Heading1": {
+          "FontFamily": "Arial",
+          "FontSize": 70,
+          "Color": "#111111"
+        },
+        "Heading2": {
+          "FontFamily": "Arial",
+          "FontSize": 50,
+          "Color": "#222222"
+        },
+        "Heading3": {
+          "FontFamily": "Arial",
+          "FontSize": 30,
+          "Color": "#333333"
+        },
+        "Heading4": {
+          "FontFamily": "Arial",
+          "FontSize": 18,
+          "Color": "#444444"
+        },
+        "Links": {
+          "Bold": true,
+          "Italic": false,
+          "Underline": true,
+          "Color": "#1a73e8"
+        },
+        "Buttons": {
+          "FontFamily": "Arial",
+          "FontSize": 16,
+          "Bold": true,
+          "Italic": false,
+          "Underline": false,
+          "Width": "50%",
+          "ButtonRadius": 4,
+          "BackgroundColor": "#1a73e8",
+          "BorderWidth": 0,
+          "BorderColor": "transparent"
+        }
+      },
+      "DefaultGeneralStyles": {
+        "LineHeight": 1,
+        "Direction": "ltr"
+      },
+      "Spacing": {
+        "PaddingEnabled": true,
+        "PaddingTop": 30,
+        "PaddingBottom": 20
+      },
+      "BackgroundImage": {
+        "BackgroundImageEnabled": true,
+        "ImageUrl": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "ImageSize": "cover",
+        "ImagePosition": "center",
+        "ImageRepeat": "NoRepeat"
+      },
+      "BodyWidth": "700px",
+      "BodyColor": "green",
+      "BackgroundColor": "pink"
+    },
+    "Sections": [
+      {
+        "Type": "SECTION",
+        "Configuration": {
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false
+          },
+          "Border": {
+            "BorderEnabled": false,
+            "Sides": [
+              {
+                "BorderSide": "BOTTOM",
+                "BorderWidth": 1,
+                "BorderColor": "#FAFAFA",
+                "BorderStyle": "SOLID"
+              }
+            ]
+          },
+          "BackgroundColor": "transparent",
+          "BodyColor": "#E5E6E8",
+          "Spacing": {
+            "MarginEnabled": true,
+            "MarginTop": 10,
+            "MarginBottom": 10,
+            "PaddingEnabled": true,
+            "PaddingTop": 10,
+            "PaddingBottom": 10,
+            "PaddingLeft": 5,
+            "PaddingRight": 5
+          }
+        },
+        "Objects": [
+          {
+            "Id": "text-001",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h2 style=\"font-family: 'Montserrat', Arial, sans-serif; letter-spacing: 5px;margin:0px;padding:0px;\">WE R2M!</h2>",
+              "Width": "500px",
+              "TextAlign": "left",
+              "Direction": "rtl",
+              "Spacing": {
+                "PaddingEnabled": true,
+                "PaddingTop": 20,
+                "PaddingRight": 10,
+                "PaddingBottom": 10,
+                "PaddingLeft": 10,
+                "MarginEnabled": true,
+                "MarginTop": 30,
+                "MarginBottom": 0
+              },
+              "BackgroundColor": "pink",
+              "RoundedCorners": 30,
+              "BlockAlignment": "left",
+              "BackgroundImage": {
+                "BackgroundImageEnabled": true,
+                "ImageUrl": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "ImageSize": "COVER",
+                "ImagePosition": "center",
+                "ImageRepeat": "NoRepeat"
+              },
+              "Border": {
+                "BorderEnabled": true,
+                "Sides": [
+                  {
+                    "BorderSide": "BOTTOM",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  },
+                  {
+                    "BorderSide": "top",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  },
+                  {
+                    "BorderSide": "left",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  },
+                  {
+                    "BorderSide": "right",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  }
+                ]
+              }
+
+            }
+          },
+          {
+            "Id": "text-002",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<span style=\"font-family: 'Georgia', serif;margin:0px;padding:0px;font-style: italic;font-size:20px;\">--------  Club  --------</span>",
+              "Width": "100%",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "MarginEnabled": true,
+                "marginBottom": 20
+
+              }
+            }
+          },
+          {
+            "Id": "text-003",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h1 style=\"font-family: 'Noto Sans Hebrew', sans-serif;line-height:1;font-size:60px;margin:0px;padding:0px;letter-spacing:2px;\">יש לנו משהו בשבילכם</h1>",
+              "Width": "400px",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 10,
+                "MarginBottom": 20
+              }
+            }
+          },
+          {
+            "Id": "text-004",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h3 style=\"margin:0px;padding:0px;\">שימו לב! רצינו לוודא שאתם מכירים את <br> כל ההזדמנויות המיוחדות שמחכות לכם<br> בהוטל מונטיפיורי</h3>",
+              "Width": "500px",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginBottom": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "Type": "SECTION",
+        "Configuration": {
+          "Border": {
+            "BorderEnabled": false,
+            "Sides": [
+              {
+                "BorderSide": "BOTTOM",
+                "BorderWidth": 1,
+                "BorderColor": "#0000FF",
+                "BorderStyle": "solid"
+              }
+            ]
+          },
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false
+          },
+          "BackgroundColor": "#ACA7A5",
+          "Spacing": {
+            "PaddingEnabled": true,
+            "PaddingTop": 10,
+            "PaddingBottom": 10,
+            "PaddingLeft": 0,
+            "PaddingRight": 0
+          }
+        },
+        "Objects": [
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<p style=\"color:#FAFAFA;margin:0px;padding:0px;\">חופשה אורבנית בעיר הלבנה</p>",
+              "Width": "500px",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "PaddingEnabled": false,
+                "PaddingTop": 0,
+                "PaddingRight": 0,
+                "PaddingBottom": 0,
+                "PaddingLeft": 0,
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+            }
+          },
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h2 style=\"color:#FAFAFA;\">HOTEL MONTEFIORE</h2>",
+              "Width": "100%",
+              "TextAlign": "CENTER",
+              "Direction": "LTR",
+              "Spacing": {
+                "PaddingEnabled": true,
+                "PaddingTop": 0,
+                "PaddingBottom": 0
+              }
+            }
+          }
+        ]
+      },
+      {
+        "Type": "SECTION",
+        "Configuration": {
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false
+          },
+          "BackgroundColor": "#ACA7A5",
+          "BodyColor": "#ACA7A5",
+          "Spacing": {
+            "MarginEnabled": true,
+            "MarginTop": 20,
+            "MarginBottom": 20,
+            "MarginLeft": 20,
+            "MarginRight": 20,
+            "PaddingEnabled": true,
+            "PaddingTop": 10,
+            "PaddingBottom": 10,
+            "PaddingLeft": 10,
+            "PaddingRight": 10
+          },
+          "RoundedCorners": 10,
+          "Border": {
+            "BorderEnabled": true,
+            "Sides": [
+              {
+                "BorderSide": "RIGHT",
+                "BorderWidth": 2,
+                "BorderColor": "#CECBC9",
+                "BorderStyle": "SOLID"
+              },
+              {
+                "BorderSide": "TOP",
+                "BorderWidth": 2,
+                "BorderColor": "#CECBC9",
+                "BorderStyle": "SOLID"
+              },
+              {
+                "BorderSide": "BOTTOM",
+                "BorderWidth": 2,
+                "BorderColor": "#CECBC9",
+                "BorderStyle": "SOLID"
+              },
+              {
+                "BorderSide": "LEFT",
+                "BorderWidth": 2,
+                "BorderColor": "#CECBC9",
+                "BorderStyle": "SOLID"
+              }
+            ]
+          }
+        },
+        "Objects": [
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h2 style=\"font-size:40px;color:#FAFAFA\">I am a text element</h2>",
+              "Width": "500px",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "BlockAlignment": "left",
+              "BackgroundColor": "pink",
+              "RoundedCorners": 10,
+              "BackgroundImage": {
+
+              },
+              "Spacing": {
+                "PaddingEnabled": true,
+                "PaddingBottom": 0,
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              },
+              "Border": {
+                "BorderEnabled": true,
+                "Sides": [
+                  {
+                    "BorderSide": "BOTTOM",
+                    "BorderWidth": 1,
+                    "BorderColor": "#FAFAFA",
+                    "BorderStyle": "SOLID"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h3 style=\"color:#FAFAFA\">וקבלו מאיתנו גיפט קארד על סך 200 שח</h3>",
+              "Width": "100%",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+            }
+          },
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<p style=\"color:#FAFAFA\">למימוש בכל אחד ממקומות הקבוצה</p>",
+              "Width": "100%",
+              "TextAlign": "CENTER",
+              "Direction": "RTL"
+            }
+          },
+          {
+            "Id": "afImage2",
+            "Name": "Main_Product_Image",
+            "Type": "IMAGE",
+            "Configuration": {
+              "ImageUrl": "https://media.istockphoto.com/id/1301017778/photo/three-glasses-of-white-rose-and-red-wine-on-a-wooden-barrel.jpg?s=612x612&w=0&k=20&c=jBQdFFFO3rgTCwDvo7IRAIqh91Wp0jQ7EaOfG6mXitQ=",
+              "AltText": "WINE",
+              "Width": "300px",
+              "Spacing": {
+                "PaddingEnabled": true,
+                "PaddingTop": 20,
+                "PaddingRight": 30,
+                "PaddingBottom": 10,
+                "PaddingLeft": 10,
+                "MarginEnabled": true,
+                "MarginTop": 20,
+                "MarginBottom": 40
+              },
+              "BackgroundColor": "pink",
+              "RoundedCorners": 10,
+              "BlockAlignment": "left",
+              "Border": {
+                "BorderEnabled": true,
+                "Sides": [
+                  {
+                    "BorderSide": "BOTTOM",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  },
+                  {
+                    "BorderSide": "top",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  },
+                  {
+                    "BorderSide": "left",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  },
+                  {
+                    "BorderSide": "right",
+                    "BorderWidth": 3,
+                    "BorderColor": "green",
+                    "BorderStyle": "solid"
+                  }
+                ]
+              },
+              "Link": {
+                "LinkEnabled": true,
+                "Url": "https://app.brevo.com/",
+                "LinkTitle": "bravo"
+              }
+            }
+          },
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<p style=\"color:#FAFAFA\">***תקף בימים ראשון - רביעי | בחודשי הקיץ יוני - יולי - אוגוסט למזמינים דרך האתר בלבד |***</p>",
+              "Width": "500px",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+            }
+          },
+          {
+            "Id": "",
+            "Name": "",
+            "Type": "TEXT",
+            "Configuration": {
+              "TextContent": "<h4 style=\"color:#FAFAFA\">להזמנות >></h4>",
+              "BackgroundColor": "#414143",
+              "Width": "120px",
+              "TextAlign": "CENTER",
+              "Direction": "RTL",
+              "Spacing": {
+                "PaddingEnabled": true,
+                "PaddingTop": 10,
+                "PaddingRight": 10,
+                "PaddingBottom": 10,
+                "PaddingLeft": 10,
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+               
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

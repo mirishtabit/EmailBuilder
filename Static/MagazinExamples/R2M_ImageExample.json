@@ -1,0 +1,138 @@
+﻿{
+  "Layout": {
+
+    "Configuration": {
+      "DefaultTagStyles": {
+        "Paragraph": {
+          "FontFamily": "Arial",
+          "FontSize": 22,
+          "Color": "#333333"
+        },
+        "Heading1": {
+          "FontFamily": "Arial",
+          "FontSize": 70,
+          "Color": "#111111"
+        },
+        "Heading2": {
+          "FontFamily": "Arial",
+          "FontSize": 50,
+          "Color": "#222222"
+        },
+        "Heading3": {
+          "FontFamily": "Arial",
+          "FontSize": 30,
+          "Color": "#333333"
+        },
+        "Heading4": {
+          "FontFamily": "Arial",
+          "FontSize": 18,
+          "Color": "#444444"
+        },
+        "Links": {
+          "Bold": true,
+          "Italic": false,
+          "Underline": true,
+          "Color": "#1a73e8"
+        },
+        "Buttons": {
+          "FontFamily": "Arial",
+          "FontSize": 16,
+          "Bold": true,
+          "Italic": false,
+          "Underline": false,
+          "Width": "50%",
+          "ButtonRadius": 4,
+          "BackgroundColor": "#1a73e8",
+          "BorderWidth": 0,
+          "BorderColor": "transparent"
+        }
+      },
+      "DefaultGeneralStyles": {
+        "LineHeight": 1,
+        "Direction": "ltr"
+      },
+      "Spacing": {
+        "MarginEnabled": true,
+        "MarginTop": 0,
+        "MarginBottom": 0
+      },
+      "Width": "600px"
+    },
+    "Sections": [
+      {
+        "Type": "SECTION",
+        "Configuration": {
+          "Width": "600px",
+          "Align": "CENTER"
+        },
+        "Objects": [
+          {
+            "Id": "afImage1",
+            "Name": "img1",
+            "Type": "IMAGE",
+            "Configuration": {
+              "ImageUrl": "https://cdn.flashyapp.com/s94ykt/8ua1p1nA.jpg",
+              "AltText": "",
+              "Width": "600px",
+              "RoundedCorners": 0,
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+             
+            }
+          },
+          {
+            "Id": "afImage2",
+            "Name": "img2",
+            "Type": "IMAGE",
+            "Configuration": {
+              "ImageUrl": "https://cdn.flashyapp.com/s94ykt/6XBzqzkS.jpg",
+              "AltText": "",
+              "Width": "600px",
+              "RoundedCorners": 0,
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+            }
+          },
+          {
+            "Id": "afImage2",
+            "Name": "img2",
+            "Type": "IMAGE",
+            "Configuration": {
+              "ImageUrl": "https://cdn.flashyapp.com/s94ykt/EXuOwsY1.jpg",
+              "AltText": "",
+              "Width": "600px",
+              "RoundedCorners": 0,
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+            }
+          },
+          {
+            "Id": "afImage2",
+            "Name": "img2",
+            "Type": "IMAGE",
+            "Configuration": {
+              "ImageUrl": "https://cdn.flashyapp.com/s94ykt/jI3FgQvi.jpg",
+              "AltText": "",
+              "Width": "600px",
+              "RoundedCorners": 0,
+              "Spacing": {
+                "MarginEnabled": true,
+                "MarginTop": 0,
+                "MarginBottom": 0
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
