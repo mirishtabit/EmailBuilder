@@ -1,5 +1,6 @@
 ﻿
 
+using HtmlAgilityPack;
 using System.Text;
 
 namespace EmailBuilder.Models.Configurations.SubConfiguration
@@ -31,9 +32,26 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
             sb.AppendLine(Heading3.GenerateCssStyles());
             sb.AppendLine(Heading4.GenerateCssStyles());
             sb.AppendLine(Links.GenerateCssStyles());
-            sb.AppendLine(Buttons.GenerateCssStyles());
+           // sb.AppendLine(Buttons.GenerateCssStyles());
             return sb.ToString();
 
+        }
+
+        public void ApplyAsInnerStyle(ref HtmlDocument html)
+        {
+            // List out only those that need explicit tag names
+            var defaltStyles = new[] {
+            Heading1,
+            Heading2,
+            Heading3,
+            Heading4,
+            Paragraph};
+
+            foreach (var st in defaltStyles)
+                st.InjectAsInlineStyle(ref html);
+
+            Links.InjectAsInlineStyle(ref html);
+            Buttons.InjectAsInlineStyle(ref html);
         }
     }
 }

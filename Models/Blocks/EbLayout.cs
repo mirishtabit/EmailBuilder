@@ -1,7 +1,7 @@
 ﻿
-
 using EmailBuilder.Models.Configurations;
 using EmailBuilder.Models.HtmlObjects;
+using HtmlAgilityPack;
 using System.Collections.Generic;
 
 namespace EmailBuilder.Models.Blocks
@@ -39,21 +39,11 @@ namespace EmailBuilder.Models.Blocks
                    $"</table>";
         }
 
-       
 
-        //public string GetFontResources()
-        //{
-        //    if (FontResources == null)
-        //        return string.Empty;
-
-        //    //StringBuilder sb = new StringBuilder();
-        //    //foreach(var link in FontResources)
-        //    //{
-        //    //    sb.Append($"@<link href=\"{link}\" rel=\"stylesheet\"");
-        //    //}
-        //    //return sb.ToString();
-
-        //}
+        public void InjectInlineStyle(ref HtmlDocument bodyHtml)
+        {
+           Configuration.InjectInlineStyle(ref bodyHtml);
+        }
 
     }
 

@@ -3,38 +3,38 @@
     "Configuration": {
       "DefaultTagStyles": {
         "Paragraph": {
-          "FontFamily": "Arial",
+          "FontFamily": "Helvetica Neue, Helvetica, Arial, Verdana, sans-serif",
           "FontSize": 16,
-          "Color": "#333333"
+          "Color": "#000000"
         },
         "Heading1": {
-          "FontFamily": "Arial",
+          "FontFamily": "Helvetica Neue, Helvetica, Arial, Verdana, sans-serif",
           "FontSize": 31,
-          "Color": "#111111"
+          "Color": "#000000"
         },
         "Heading2": {
-          "FontFamily": "Arial",
+          "FontFamily": "Helvetica Neue, Helvetica, Arial, Verdana, sans-serif",
           "FontSize": 28,
-          "Color": "#222222"
+          "Color": "#000000"
         },
         "Heading3": {
-          "FontFamily": "Arial",
-          "FontSize": 25,
-          "Color": "#333333"
+          "FontFamily": "Helvetica Neue, Helvetica, Arial, Verdana, sans-serif",
+          "FontSize": 21,
+          "Color": "#000000"
         },
         "Heading4": {
-          "FontFamily": "Arial",
+          "FontFamily": "Helvetica Neue, Helvetica, Arial, Verdana, sans-serif",
           "FontSize": 18,
           "Color": "#444444"
         },
         "Links": {
-          "Bold": true,
+          "Bold": false,
           "Italic": false,
-          "Underline": true,
+          "Underline": false,
           "Color": "#1a73e8"
         },
         "Buttons": {
-          "FontFamily": "Arial",
+          "FontFamily": "Helvetica Neue, Helvetica, Arial, Verdana, sans-serif",
           "FontSize": 16,
           "Bold": true,
           "Italic": false,
@@ -47,7 +47,7 @@
         }
       },
       "DefaultGeneralStyles": {
-        "LineHeight": 1,
+        "LineHeight": 1.7,
         "Direction": "ltr"
       },
       "Spacing": {
@@ -55,10 +55,20 @@
         "PaddingTop": 0,
         "PaddingBottom": 0
       },
-      "BodyWidth": "692px"
+      "BodyWidth": "692px",
+      "BackgroundColor": "#FAFAFA",
+      "BodyColor": "transparent",
+      "BackgroundImage": {
+        "BackgroundImageEnabled": false,
+        "ImageUrl": "",
+        "ImagePosition": "CENTER",
+        "ImageRepeat": "NoRepeat",
+        "ImageSize": "cover"
+      }
     },
     "Sections": [
       {
+        "Id": "section1",
         "Name": "sec1",
         "Configuration": {
           "BodyColor": "#FFFFFF",
@@ -66,10 +76,27 @@
             "PaddingEnabled": true,
             "PaddingTop": 0,
             "PaddingBottom": 24,
+            "PaddingLeft": 0,
+            "PaddingRight": 0,
             "MarginEnabled": true,
             "MarginLeft": 16,
-            "MarginRight": 16
-          }
+            "MarginRight": 16,
+            "MarginBottom": 0,
+            "MarginTop": 0
+          },
+          "BackgroundColor": "transparent",
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false,
+            "ImageUrl": "",
+            "ImagePosition": "CENTER",
+            "ImageRepeat": "NoRepeat",
+            "ImageSize": "cover"
+          },
+          "Border": {
+            "BorderEnabled": false,
+            "Sides": null
+          },
+          "RoundedCorners": 0
         },
         "Objects": [
           {
@@ -84,14 +111,32 @@
                 "PaddingEnabled": true,
                 "paddingTop": 12,
                 "PaddingBottom": 12,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
                 "MarginEnabled": true,
-                "MarginBottom": 0
+                "MarginBottom": 0,
+                "MarginTop": 0,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "BackgroundColor": "transparent",
+              "RoundedCorners": 0,
+              "BlockAlignment": "center",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "Link": {
+                "LinkEnabled": false,
+                "Url": "",
+                "LinkTitle": ""
               }
             }
           }
         ]
       },
       {
+        "Id": "section2",
         "Name": "sec2",
         "Type": "SECTION",
         "Configuration": {
@@ -104,8 +149,23 @@
             "PaddingRight": 23,
             "MarginEnabled": true,
             "MarginLeft": 16,
-            "MarginRight": 16
-          }
+            "MarginRight": 16,
+            "MarginBottom": 0,
+            "MarginTop": 0
+          },
+          "BackgroundColor": "transparent",
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false,
+            "ImageUrl": "",
+            "ImagePosition": "CENTER",
+            "ImageRepeat": "NoRepeat",
+            "ImageSize": "cover"
+          },
+          "Border": {
+            "BorderEnabled": false,
+            "Sides": null
+          },
+          "RoundedCorners": 0
         },
         "Objects": [
           {
@@ -113,14 +173,35 @@
             "Name": "",
             "Type": "TEXT",
             "Configuration": {
-              "TextContent": "<p style=\"caret-color: rgb(0, 0, 0); font-variant-caps: normal; font-weight: 400; letter-spacing: normal;text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"><strong><span style=\"color:#000000;\"><span style=\"line-height:24px;font-size: 16px;font-family:Helvetica Neue, Helvetica, Arial, Verdana, sans-serif\">A Key Largo Destination — 3 Restaurants, 3 Bars, and 3 Incredible Happy Hours!</span></span></strong></p>",
+              "TextContent": "<p><strong><span>A Key Largo Destination — 3 Restaurants, 3 Bars, and 3 Incredible Happy Hours!</span></strong></p>",
               "Width": "100%",
-              "TextAlign": "CENTER",
+              "TextAlign": "center",
+              "BlockAlignment": "center",
               "Direction": "LTR",
+              "RoundedCorners": 0,
               "Spacing": {
                 "PaddingEnabled": true,
-                "paddingTop": 12,
-                "PaddingBottom": 0
+                "PaddingTop": 12,
+                "PaddingBottom": 0,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
+                "MarginEnabled": false,
+                "MarginLeft": 0,
+                "MarginRight": 0,
+                "MarginBottom": 0,
+                "MarginTop": 0
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundColor": "transparent",
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
               }
             }
           },
@@ -129,17 +210,36 @@
             "Name": "",
             "Type": "TEXT",
             "Configuration": {
-              "TextContent": "<p style=\"caret-color: rgb(0, 0, 0); font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: center; text-indent: 0px; text-transform: none; white-space: normal;word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"><strong><span style=\"line-height:24px;font-size: 16px;font-family:Helvetica Neue, Helvetica, Arial, Verdana, sans-serif;color:#000000;\">Locally owned and operated for over 30 years.</span></strong></p>",
+              "TextContent": "<p style=\"text-decoration: none;\"><strong><span style=\"color:#000000;\">Locally owned and operated for over 30 years.</span></strong></p>",
               "Width": "100%",
               "TextAlign": "CENTER",
               "Direction": "LTR",
               "Spacing": {
                 "PaddingEnabled": true,
                 "paddingTop": 0,
-                "PaddingBottom": 0,
-                "MarginEnabled": true,
-                "MarginBottom": 24
-              }
+                "PaddingBottom": 24,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
+                "MarginEnabled": false,
+                "MarginBottom": 0,
+                "MarginTop": 0,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundColor": "transparent",
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0
             }
           },
           {
@@ -147,14 +247,36 @@
             "Name": "",
             "Type": "TEXT",
             "Configuration": {
-              "TextContent": "<p style=\"caret-color: rgb(0, 0, 0); font-variant-caps: normal; font-weight: 400; letter-spacing: normal;text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none;\"><span style=\"line-height:24px;font-size:16px;font-family:Helvetica Neue, Helvetica, Arial, Verdana, sans-serif;color:#000000;\"> DiGiorgio’s Café Largo and Bayside Grille are serving up happy hour specials, Sunday Brunch, refreshing cocktails, and great food all summer long!</span></p>",
+              "TextContent": "<p style=\"text-decoration: none;\"><span style=\"color:#000000;\">DiGiorgio’s Café Largo and Bayside Grille are serving up happy hour specials, Sunday Brunch, refreshing cocktails, and great food all summer long!</span></p>",
               "Width": "100%",
               "TextAlign": "CENTER",
               "Direction": "ltr",
               "Spacing": {
-                "PaddingEnabled": true,
-                "paddingTop": 0
-              }
+                "PaddingEnabled": false,
+                "paddingTop": 0,
+                "PaddingBottom": 0,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
+                "MarginEnabled": true,
+                "MarginBottom": 20,
+                "MarginTop": 0,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundColor": "transparent",
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0
             }
           },
           {
@@ -162,7 +284,7 @@
             "Name": "",
             "Type": "TEXT",
             "Configuration": {
-              "TextContent": "<a href=\"https://keylargorestaurants.com/\" target=\"_blank\" style=\"color:#ffffff;font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;letter-spacing:0px\" rel=\"noreferrer\">View Website Here</a>",
+              "TextContent": "<a href=\"https://keylargorestaurants.com/\" style=\"color:#ffffff;\" rel=\"noreferrer\">View Website Here</a>",
               "Width": "195px",
               "TextAlign": "CENTER",
               "Direction": "ltr",
@@ -175,8 +297,23 @@
                 "PaddingRight": 28,
                 "MarginEnabled": true,
                 "MarginBottom": 12,
-                "MarginTop": 12
-              }
+                "MarginTop": 12,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0
             }
           },
           {
@@ -188,10 +325,16 @@
               "Width": "100%",
               "TextAlign": "CENTER",
               "Spacing": {
-                "PaddingEnabled": true,
+                "PaddingEnabled": false,
+                "paddingTop": 0,
+                "PaddingBottom": 0,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
                 "MarginEnabled": true,
                 "MarginBottom": 20,
-                "MarginTop": 10
+                "MarginTop": 10,
+                "MarginLeft": 0,
+                "MarginRight": 0
               },
               "Border": {
                 "BorderEnabled": true,
@@ -203,12 +346,23 @@
                     "BorderStyle": "SOLID"
                   }
                 ]
-              }
+              },
+              "backgroundColor": "transparent",
+              "backgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0
             }
           }
         ]
       },
       {
+        "Id": "section3",
         "Name": "sec3",
         "Type": "SECTION",
         "Configuration": {
@@ -217,10 +371,27 @@
             "PaddingEnabled": true,
             "PaddingTop": 0,
             "PaddingBottom": 24,
+            "PaddingLeft": 0,
+            "PaddingRight": 0,
             "MarginEnabled": true,
             "MarginLeft": 16,
-            "MarginRight": 16
-          }
+            "MarginRight": 16,
+            "MarginBottom": 0,
+            "MarginTop": 0
+          },
+          "BackgroundColor": "transparent",
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false,
+            "ImageUrl": "",
+            "ImagePosition": "CENTER",
+            "ImageRepeat": "NoRepeat",
+            "ImageSize": "cover"
+          },
+          "Border": {
+            "BorderEnabled": false,
+            "Sides": null
+          },
+          "RoundedCorners": 0
         },
         "Objects": [
           {
@@ -233,8 +404,27 @@
               "Width": "45%",
               "Spacing": {
                 "PaddingEnabled": true,
-                "paddingTop": 12,
-                "PaddingBottom": 12
+                "PaddingTop": 12,
+                "PaddingBottom": 12,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
+                "MarginEnabled": true,
+                "MarginBottom": 0,
+                "MarginTop": 0,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "BackgroundColor": "transparent",
+              "RoundedCorners": 0,
+              "BlockAlignment": "center",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "Link": {
+                "LinkEnabled": true,
+                "Url": "https://cafelargo.com/",
+                "LinkTitle": "Cafe Largo"
               }
             }
           },
@@ -245,10 +435,24 @@
               "ImageUrl": "https://mcusercontent.com/edd3202c818e1f341f7b52405/images/db3ccc8e-dfea-bae8-798e-2b1560ca7267.png",
               "AltText": "Cafe Largo",
               "Width": "100%",
+              "BackgroundColor": "transparent",
+              "RoundedCorners": 0,
+              "BlockAlignment": "center",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
               "Spacing": {
                 "PaddingEnabled": true,
                 "paddingTop": 12,
-                "PaddingBottom": 12
+                "PaddingBottom": 12,
+                "PaddingLeft": 0,
+                "PaddingRight": 0,
+                "MarginEnabled": false,
+                "MarginBottom": 0,
+                "MarginTop": 0,
+                "MarginLeft": 0,
+                "MarginRight": 0
               },
               "Link": {
                 "LinkEnabled": true,
@@ -260,6 +464,7 @@
         ]
       },
       {
+        "Id": "section4",
         "Name": "sec4",
         "Type": "SECTION",
         "Configuration": {
@@ -272,8 +477,23 @@
             "PaddingRight": 23,
             "MarginEnabled": true,
             "MarginLeft": 16,
-            "MarginRight": 16
-          }
+            "MarginRight": 16,
+            "MarginBottom": 0,
+            "MarginTop": 0
+          },
+          "BackgroundColor": "transparent",
+          "BackgroundImage": {
+            "BackgroundImageEnabled": false,
+            "ImageUrl": "",
+            "ImagePosition": "CENTER",
+            "ImageRepeat": "NoRepeat",
+            "ImageSize": "cover"
+          },
+          "Border": {
+            "BorderEnabled": false,
+            "Sides": null
+          },
+          "RoundedCorners": 0
         },
         "Objects": [
           {
@@ -281,7 +501,7 @@
             "Name": "Summer Happy Hour",
             "Type": "TEXT",
             "Configuration": {
-              "TextContent": "<h1 style=\"padding:0;margin:0;\"><strong><span style=\"color:rgb(0, 0, 0);line-height:2;\"><span style=\"font-size: 20px;line-height:2;\">Summer Happy Hour</span></span></strong></h1><p style=\"line-height:24px;\"><strong><span style=\"color:rgb(0, 0, 0);line-height:24px;\"><span style=\"font-size: 16px;line-height:24px;\"><span style=\"font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;line-height:24px;\"><span style=\"line-height:24px;\">Monday - Saturday | 4:00 - 7:00</span></span></span></span></strong></p><p style=\"line-height:24px;\">Discounted Cocktails</p><p style=\"line-height:24px;\">Discounted Wines by the glass</p><p>$5.00 Peroni’s</p><p style=\"line-height:24px;\">$10 Happy Hour Food Menu (Bar Bites)</p></div>",
+              "TextContent": "<h3><strong><span>Summer Happy Hour</span></strong></h3><p><strong><span style=\"color:rgb(0, 0, 0);\">Monday - Saturday | 4:00 - 7:00</span></strong></p><p>Discounted Cocktails</p><p>Discounted Wines by the glass</p><p>$5.00 Peroni’s</p><p>$10 Happy Hour Food Menu (Bar Bites)</p>",
               "Width": "100%",
               "TextAlign": "CENTER",
               "Direction": "ltr",
@@ -290,10 +510,27 @@
                 "PaddingEnabled": true,
                 "paddingLeft": 16,
                 "PaddingRight": 16,
+                "PaddingTop": 0,
+                "PaddingBottom": 0,
                 "MarginEnabled": true,
                 "MarginBottom": 60,
-                "MarginTop": 65
-              }
+                "MarginTop": 65,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0
             }
           },
           {
@@ -301,7 +538,7 @@
             "Name": "",
             "Type": "TEXT",
             "Configuration": {
-              "TextContent": "<a href=\"https://keylargorestaurants.com/\" style=\"color:#ffffff;font-family:'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;letter-spacing:0px\" rel=\"noreferrer\">View Happy Hour Menu</a>",
+              "TextContent": "<a href=\"https://keylargorestaurants.com/\" style=\"color:#ffffff;\" rel=\"noreferrer\">View Happy Hour Menu</a>",
               "Width": "250px",
               "TextAlign": "CENTER",
               "Direction": "ltr",
@@ -314,8 +551,23 @@
                 "PaddingRight": 28,
                 "MarginEnabled": true,
                 "MarginBottom": 12,
-                "MarginTop": 12
-              }
+                "MarginTop": 12,
+                "MarginLeft": 0,
+                "MarginRight": 0
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false,
+                "ImageUrl": "",
+                "ImagePosition": "CENTER",
+                "ImageRepeat": "NoRepeat",
+                "ImageSize": "cover"
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0
             }
           }
         ]

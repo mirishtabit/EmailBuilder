@@ -1,43 +1,61 @@
 ﻿using EmailBuilder.Extensions;
 using EmailBuilder.Models.Blocks;
+using EmailBuilder.Models.Configurations.SubConfiguration;
 using EmailBuilder.Services.Interfaces;
 using HtmlAgilityPack;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace EmailBuilder.Services
 {
     public class MainGeneratorService : IMainGeneratorService
     {
+
+        /// <summary>
+        /// Renders the HTML representation of the specified layout, including its structure and inline styles.
+        /// </summary>
+        /// <remarks>This method generates an HTML document based on the provided layout, including its
+        /// structure and inline styles. The layout's configuration and resources are injected into the document to
+        /// ensure proper rendering.</remarks>
+        /// <param name="layout">The layout to render as HTML. Must not be null.</param>
+        /// <returns>A string containing the complete HTML document for the specified layout.</returns>
         public string RenderLayoutHtml(EbLayout layout)
         {
-            /// Skeleton
             HtmlDocument doc = RenderHtmlSkeleton();
 
-            /// Add generated elements into the skeleton
-            var tdNode = doc.DocumentNode.SelectSingleNode("//body");
-            if (tdNode != null)
+            /// Add generated elements into the body
+            var bodyHtml = doc.DocumentNode.SelectSingleNode("//body");
+            if (bodyHtml != null)
             {
-                tdNode.InnerHtml = layout.RenderLayoutHtml(); 
+                bodyHtml.InnerHtml = layout.RenderLayoutHtml();
+                layout.InjectInlineStyle(ref doc);
             }
 
-            /// Add generated Style into the HEAD           
-            string generalStyle = layout.Configuration.GenerateCssStyles();
-            AddCssToStyleTag(doc, generalStyle);
-
-            /// Add external link resources 
-            AddFontResourcesToHead(layout, doc);
 
             return doc.DocumentNode.OuterHtml;
         }
 
+
+        /// <summary>
+        /// Loads and parses an HTML skeleton file into HtmlDocument object.
+        /// </summary>
+        /// <remarks>The method retrieves the HTML skeleton from a predefined file path and parses it into
+        /// an HtmlDocument instance. The file must exist at the specified location, and its contents
+        /// must be valid HTML.</remarks>
+        /// <returns>An <see cref="HtmlDocument"/> object representing the parsed HTML skeleton.</returns>
         public static HtmlDocument RenderHtmlSkeleton()
         {
-            /// Load html skeleton from file
             var path = System.Web.Hosting.HostingEnvironment.MapPath($"~/Static/EmailWrapperNew.html");
+
+            if (!File.Exists(path))
+                throw new FileNotFoundException("HTML skeleton file not found.", path);
+
             string htmlStr = File.ReadAllText(path);
 
-            if (htmlStr == null)
-                throw new FileNotFoundException("HTML skeleton file not found.", path);
+            if (string.IsNullOrWhiteSpace(htmlStr))
+                throw new InvalidDataException($"HTML skeleton file at '{path}' is empty.");
 
             var doc = new HtmlDocument();
             doc.LoadHtml(htmlStr);
@@ -45,41 +63,7 @@ namespace EmailBuilder.Services
             return doc;
         }
 
-        private static void AddFontResourcesToHead(EbLayout layout, HtmlDocument doc)
-        {
-            //string linkResources = layout.GetFontResources();
-            var headNode = doc.DocumentNode.SelectSingleNode("//head");
-            if (headNode != null && layout.FontResources!=null)
-            {
-                foreach (var link in layout.FontResources)
-                {
-                    var linkNode = doc.CreateElement("link");
-                    linkNode.SetAttributeValue("href", link);
-                    linkNode.SetAttributeValue("rel", "stylesheet");
-                    headNode.PrependChild(linkNode);
-                }
-                
-            }
-        }
-
-        private void AddCssToStyleTag(HtmlDocument doc, string generalStyle)
-        {
-            var styleNode = doc.DocumentNode.SelectSingleNode("//head/style");
-
-            if (styleNode != null)
-            {
-                styleNode.InnerHtml += "\n" + generalStyle;
-            }
-            else
-            {
-                var head = doc.DocumentNode.SelectSingleNode("//head") ?? doc.CreateElement("head");
-                styleNode = doc.CreateElement("style");
-                styleNode.SetAttributeValue("type", "text/css");
-                styleNode.InnerHtml = generalStyle;
-                head.AppendChild(styleNode);
-            }
-        }
-
+     
        
 
 

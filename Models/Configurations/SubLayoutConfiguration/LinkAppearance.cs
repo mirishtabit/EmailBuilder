@@ -1,15 +1,20 @@
 ﻿
+using EmailBuilder.Helpers;
+using EmailBuilder.Models.Configurations.SubLayoutConfiguration;
+using System.Collections.Generic;
 using System.Drawing;
-using static System.Net.Mime.MediaTypeNames;
+using System.Web.UI.WebControls;
+
 
 namespace EmailBuilder.Models.Configurations.SubConfiguration
 {
-    public class LinkAppearance
+    public class LinkAppearance: DefaultBase
     {
-        public string Color { get; set; } = "transparent";
-        public bool IsItalic { get; set; }
-        public bool IsUnderline { get; set; }
-        public bool IsBold { get; set; }
+        public override string TagName { get; set; } = "a";
+        public string Color { get; set; } = "#0000EE";
+        public bool Italic { get; set; } = true;
+        public bool Underline { get; set; } = false;
+        public bool Bold { get; set; } = false;
 
         public LinkAppearance()
         {
@@ -21,20 +26,21 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
             return $@"
                     a {{
                         color: {Color};
-                        text-decoration: {(IsUnderline ? "underline" : "none")};
-                        font-weight: {(IsBold ? "bold" : "normal")};
-                        font-style: {(IsItalic ? "italic" : "normal")};
+                        text-decoration: {(Underline ? "underline" : "none")};
+                        font-weight: {(Bold ? "bold" : "normal")};
+                        font-style: {(Italic ? "italic" : "normal")};
                     }}
-
-                    @media screen and (min-width: 600px) {{
-                        a {{
-                            color: {Color};
-                            text-decoration: {(IsUnderline ? "underline" : "none")};
-                            font-weight: {(IsBold ? "bold" : "normal")};
-                            font-style: {(IsItalic ? "italic" : "normal")};
-                        }}
                     }}";
         }
 
+
+        protected override void UpdateDictionaryWithDefaults(ref Dictionary<string, string> styleDict)
+        {
+            HtmlHelper.AddToDictionary(styleDict, "color", Color);
+            HtmlHelper.AddToDictionary(styleDict, "font-style", Italic ? "italic" : "normal");
+            HtmlHelper.AddToDictionary(styleDict, "text-decoration", Underline? "underline":"none");
+            HtmlHelper.AddToDictionary(styleDict, "font-weight", Bold ? "bold": "normal");
+        }
     }
+    
 }

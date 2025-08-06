@@ -183,6 +183,7 @@
     <Compile Include="Models\Configurations\SubLayoutConfiguration\ButtonsAppearance.cs" />
     <Compile Include="Models\Configurations\SubLayoutConfiguration\DefaultGeneralStyles.cs" />
     <Compile Include="Models\Configurations\SubLayoutConfiguration\DefaultTagStyles.cs" />
+    <Compile Include="Models\Configurations\SubLayoutConfiguration\DefaultBase.cs" />
     <Compile Include="Models\Configurations\SubLayoutConfiguration\LinkAppearance.cs" />
     <Compile Include="Models\Configurations\SubLayoutConfiguration\TextTagAppearancs.cs" />
     <Compile Include="Models\Configurations\TextConfiguration.cs" />

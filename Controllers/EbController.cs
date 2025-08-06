@@ -1,7 +1,9 @@
-﻿using EmailBuilder.Models.Blocks;
+﻿using EmailBuilder.Common;
+using EmailBuilder.Models.Blocks;
 using EmailBuilder.Services;
 using EmailBuilder.Services.Interfaces;
 using Newtonsoft.Json;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -48,7 +50,7 @@ namespace EmailBuilder
             var root = JsonConvert.DeserializeObject<Root>(json);
 
             if (root == null || root.Layout == null)
-                return BadRequest("Invalid JSON structure.");
+                return BadRequest("Invalid JSON structure, or layout dont exists.");
 
             string FinalHtmlResult = _mainGeneratorService.RenderLayoutHtml(root.Layout);
 
@@ -57,7 +59,10 @@ namespace EmailBuilder
 
             _mailTrapService.SendEmail(FinalHtmlResult);
 
-            return Ok(FinalHtmlResult);
+            var response = Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new StringContent(FinalHtmlResult, Encoding.UTF8, "text/html");
+            return ResponseMessage(response);
+
         }
 
         [HttpGet]

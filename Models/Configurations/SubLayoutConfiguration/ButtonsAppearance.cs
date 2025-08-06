@@ -1,10 +1,15 @@
 ﻿using EmailBuilder.Common;
+using EmailBuilder.Helpers;
+using EmailBuilder.Models.Configurations.SubLayoutConfiguration;
 using EmailBuilder.Models.HtmlProperties;
+using System.Collections.Generic;
+
 
 namespace EmailBuilder.Models.Configurations.SubConfiguration
 {
-    public class ButtonsAppearance
+    public class ButtonsAppearance: DefaultBase
     {
+        public override string TagName { get; set; } = "button";
         public string FontFamily { get; set; } = "Arial, Helvetica, sans-serif";
         public int FontSize { get; set; }
         public bool Bold { get; set; }
@@ -21,16 +26,25 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
             get
             {
                 if (string.IsNullOrEmpty(_width))
-                {
-                    // Default to 100% width if not set
                     _width = "100%";
-                }
                 return _width;
             }
             set
             {
-                if (PropertyValidator.ValidateSizeCordinates(value, out _widthNumericValue))
+                // ValidateSizeCoordinates returns true if “value” is valid
+                // and spits out the numeric part into out _widthNumericValue
+                if (PropertyValidator.ValidateSizeCordinates(value, out var numeric))
+                {
                     _width = value;
+                    _widthNumericValue = numeric;
+                }
+            }
+        }
+        public string WidthNumericValue
+        {
+            get
+            {
+                return _widthNumericValue;
             }
         }
 
@@ -59,6 +73,25 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
                             width: 100%;
                         }}
                     }}";
+        }
+
+        protected override void UpdateDictionaryWithDefaults(ref Dictionary<string, string> styleDict)
+        {
+            HtmlHelper.AddToDictionary(styleDict, "font-family", FontFamily);
+            HtmlHelper.AddToDictionary(styleDict, "font-size", FontSize.ToString() + "px");
+            HtmlHelper.AddToDictionary(styleDict, "border-radius", ButtonRadius.ToString() + "px");
+            HtmlHelper.AddToDictionary(styleDict, "background-color", BackgroundColor);
+            HtmlHelper.AddToDictionary(styleDict, "width", Width);
+            HtmlHelper.AddToDictionary(styleDict, "font-weight", Bold ? "bold" : "normal");
+            HtmlHelper.AddToDictionary(styleDict, "font-style", Italic ? "italic" : "normal");
+            HtmlHelper.AddToDictionary(styleDict, "text-decoration", Underline ? "underline" : "none");
+
+            if (Borders != null && Borders.BorderWidth > 0)
+            {
+                HtmlHelper.AddToDictionary(styleDict, "border-color", Borders.BorderColor);
+                HtmlHelper.AddToDictionary(styleDict, "border-style", Borders.BorderStyle.ToString());
+                HtmlHelper.AddToDictionary(styleDict, "border-width", Borders.BorderWidth.ToString() + "px");
+            }
         }
     }
 }

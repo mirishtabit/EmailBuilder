@@ -1,14 +1,12 @@
 ﻿
-using EmailBuilder.Common;
 using EmailBuilder.Models.Configurations.SubConfiguration;
 using EmailBuilder.Models.Properties;
 using EmailBuilder.Models.Properties.Spacing;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
-using System.Text;
 
 namespace EmailBuilder.Models.Configurations
 {
-
     public class LayoutConfiguration: ConfigurationBase
     {
         public DefaultTagStyles DefaultTagStyles { get; set; }
@@ -26,8 +24,7 @@ namespace EmailBuilder.Models.Configurations
             set => base.Width = value;
         }
 
-        public LayoutConfiguration()
-        {}
+        public LayoutConfiguration(){}
 
 
         #region element properties
@@ -58,7 +55,6 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-               
                 string styles = $"{WidthTblStyle} {BackColorStyle(BodyColor)}";
                 string attributes = $"{BackColorAttr(BodyColor)} {WidthAttr} {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
@@ -67,13 +63,11 @@ namespace EmailBuilder.Models.Configurations
 
         #endregion
 
-        public string GenerateCssStyles()
+        
+        public void InjectInlineStyle(ref HtmlDocument bodyHtml)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(DefaultGeneralStyles.GenerateCssStyles());
-            sb.Append(DefaultTagStyles.GenerateCssStyles());
-            return sb.ToString();
-
+            DefaultTagStyles.ApplyAsInnerStyle(ref bodyHtml);
+            DefaultGeneralStyles.ApplyAsInnerStyle(ref bodyHtml);
         }
     }
 }
