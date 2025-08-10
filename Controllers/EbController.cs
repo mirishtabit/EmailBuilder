@@ -43,7 +43,7 @@ namespace EmailBuilder
 
         [HttpGet]
         [Route("SendRenderHtmlByMail")]
-        public async Task<IHttpActionResult> SendRenderHtmlByMail([FromUri] string email)
+        /// This endpoint renders the HTML from a JSON file and returns it.
         {
             var path = System.Web.Hosting.HostingEnvironment.MapPath("~/Static/MagazinExamples/Cafe_Largo.json");
             var json = System.IO.File.ReadAllText(path);
