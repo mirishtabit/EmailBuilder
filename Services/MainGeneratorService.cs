@@ -80,7 +80,7 @@ namespace EmailBuilder.Services
             layout.Configuration = new LayoutConfiguration
             {
                 BodyColor = "#FFFFFF",
-                Width = "600px",/// need to be changed to body width
+                Width = new EbWidth("600px",SizeUnit.Both),/// need to be changed to body width
                 DefaultTagStyles = new DefaultTagStyles
                 {
                     Paragraph = new TextTagAppearance { FontFamily = "Arial", FontSize = 16, Color = "#333333" },
@@ -131,7 +131,7 @@ namespace EmailBuilder.Services
                     Configuration = new TextConfiguration
                     {
                         TextContent = "<h1>Cafe Largo Test</h1>",
-                        Width = "100%",
+                        Width = new EbWidth("100%", SizeUnit.Both),
                         BackgroundColor = "#F5F5F5",
                         Spacing = new SpacingBase
                         {
@@ -177,7 +177,7 @@ namespace EmailBuilder.Services
                     {
                         ImageUrl = "https://media.istockphoto.com/id/1301017778/photo/three-glasses-of-white-rose-and-red-wine-on-a-wooden-barrel.jpg",
                         AltText = "Wine Glasses",
-                        Width = "400px",
+                        Width = new EbWidth("400px", SizeUnit.Both),
                         RoundedCorners = 8,
                         BackgroundColor = "#FFFFFF",
                         Spacing = new SpacingBase
@@ -226,7 +226,7 @@ namespace EmailBuilder.Services
                     Configuration = new TextConfiguration
                     {
                         TextContent = "<p>הימים האחרונים רגישים, מורכבים ומלאי חוסר וודאות.<br>אנחנו פועלים במתכונת מצומצמת אך בוחרים לפתוח את הלב וגם את היקב, בצורה שקטה, בטוחה ומחבקת עבור כל מי שצריך לקחת לגימה של רוגע ושלווה.</p>",
-                        Width = "100%",
+                        Width = new EbWidth("100%", SizeUnit.Both),
                         TextAlign = Position.Left,
                         Direction = Direction.Rtl,
                         BackgroundColor = "#FFFFFF",

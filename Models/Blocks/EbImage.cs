@@ -1,5 +1,7 @@
+using EmailBuilder.Common;
 using EmailBuilder.Models.Blocks;
 using EmailBuilder.Models.Configurations;
+using EmailBuilder.Models.Properties;
 using Newtonsoft.Json;
 using System;
 
@@ -27,7 +29,7 @@ namespace EmailBuilder.Models.HtmlObjects
         {
             Configuration = new ImageConfiguration
             {
-                Width = width
+                Width = new EbWidth(width, SizeUnit.Both)
             };
         }
 

@@ -1,4 +1,5 @@
 ﻿using EmailBuilder.Common;
+using EmailBuilder.Converters;
 using EmailBuilder.Models.Configurations.SubConfiguration;
 using EmailBuilder.Models.HtmlProperties;
 using EmailBuilder.Models.Properties;
@@ -32,11 +33,8 @@ namespace EmailBuilder.Models.Configurations
         public EbBackgroundImage BackgroundImage { get; set; } = new EbBackgroundImage();
 
         [JsonProperty("BodyWidth", Required = Required.Always)]
-        public override string Width
-        {
-            get => base.Width;
-            set => base.Width = value;
-        }
+        [JsonConverter(typeof(WidthConverter), SizeUnit.PX)]
+        public EbWidth Width { get; set; } = new EbWidth(SizeUnit.PX);
 
         #endregion
 
@@ -67,8 +65,8 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-                string styles = $"{WidthTblStyle} {BackColorStyle(BodyColor)}";
-                string attributes = $"{BackColorAttr(BodyColor)} {WidthAttr} {TableMsoAttributes}";
+                string styles = $"{Width.WidthTblStyle} {BackColorStyle(BodyColor)}";
+                string attributes = $"{BackColorAttr(BodyColor)} {Width.WidthAttr} {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }

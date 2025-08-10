@@ -1,4 +1,6 @@
 ﻿
+using EmailBuilder.Common;
+using EmailBuilder.Converters;
 using EmailBuilder.Models.Configurations.SubConfiguration;
 using EmailBuilder.Models.HtmlProperties;
 using EmailBuilder.Models.Properties;
@@ -29,7 +31,8 @@ namespace EmailBuilder.Models.Configurations
         [JsonProperty(Required = Required.Always)]
         public string BodyColor { get; set; } = string.Empty;
 
-
+        [JsonIgnore]
+        public EbWidth Width { get; set; } = new EbWidth(SizeUnit.Both);
         #endregion
 
         #region element style helpers
@@ -47,8 +50,8 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-                string styles = $"{BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {WidthStyle}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string styles = $"{BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {Width.WidthStyle}";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
@@ -57,8 +60,8 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-                string styles = $"{BackColorStyle(BodyColor)} {RoundedCornersStyle(RoundedCorners)} {Border.GetHtmlStyle} {WidthTblStyle}";
-                string attributes = $"{BackColorAttr(BodyColor)} {WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string styles = $"{BackColorStyle(BodyColor)} {RoundedCornersStyle(RoundedCorners)} {Border.GetHtmlStyle} {Width.WidthTblStyle}";
+                string attributes = $"{BackColorAttr(BodyColor)} {Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
@@ -77,7 +80,7 @@ namespace EmailBuilder.Models.Configurations
             get
             {
                 string styles = $"{Spacing.GetHtmlStyle}";
-                string attributes = $"{WidthAttr} align=\"center\"";
+                string attributes = $"{Width.WidthAttr} align=\"center\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }

@@ -165,6 +165,7 @@
     <Compile Include="Common\EnumGeneral.cs" />
     <Compile Include="Common\PropertyValidator.cs" />
     <Compile Include="Controllers\EbController.cs" />
+    <Compile Include="Converters\WidthConverter.cs" />
     <Compile Include="Converters\ElementConverter.cs" />
     <Compile Include="Extensions\HtmlRenderer.cs" />
     <Compile Include="Global.asax.cs">

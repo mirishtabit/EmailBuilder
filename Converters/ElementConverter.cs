@@ -3,8 +3,6 @@ using EmailBuilder.Models.HtmlObjects;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Web.UI.WebControls;
-
 namespace EmailBuilder.Converters
 {
     /// <summary>
@@ -89,36 +87,5 @@ namespace EmailBuilder.Converters
             jObject.WriteTo(writer);
         }
 
-        //private string GetJsonNameForErrorMsg(string objName)
-        //{
-        //    switch (objName.ToUpperInvariant())
-        //    {
-        //        case "EBLAYOUT":
-        //            return "Layout";
-        //        case "EBSECTION":
-        //            return "Section";
-        //        default: return objName;
-
-        //    }
-        //}
-        //private static void ValidateJsonStructure(JObject jObject)
-        //{
-        //    // Check for "Configuration" property
-        //    if (jObject["Configuration"] == null)
-        //        throw new JsonException("Missing 'Configuration' property in layout JSON.");
-
-        //    // Check for "Sections" property and ensure it's a non-empty array
-        //    var sectionsToken = jObject["Sections"];
-        //    if (sectionsToken == null || sectionsToken.Type != JTokenType.Array || !sectionsToken.HasValues)
-        //        throw new JsonException("Missing or empty 'Sections' array in layout JSON.");
-
-        //    // Optionally, check each section for required properties
-        //    foreach (var section in sectionsToken.Children<JObject>())
-        //    {
-        //        if (section["Configuration"] == null)
-        //            throw new JsonException("Section missing 'Configuration' property.");
-        //        // Add more checks as needed
-        //    }
-        //}
     }
 }

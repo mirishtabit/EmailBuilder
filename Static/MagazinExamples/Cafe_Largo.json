@@ -356,7 +356,8 @@
                 "ImageSize": "cover"
               },
               "BlockAlignment": "center",
-              "RoundedCorners": 0
+              "RoundedCorners": 0,
+              "Direction": "ltr"
             }
           }
         ]
@@ -430,6 +431,7 @@
           },
           {
             "Id": "afImage4",
+            "Name": "",
             "Type": "IMAGE",
             "Configuration": {
               "ImageUrl": "https://mcusercontent.com/edd3202c818e1f341f7b52405/images/db3ccc8e-dfea-bae8-798e-2b1560ca7267.png",

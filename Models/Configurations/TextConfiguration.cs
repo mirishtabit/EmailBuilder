@@ -1,4 +1,5 @@
 ﻿using EmailBuilder.Common;
+using EmailBuilder.Converters;
 using EmailBuilder.Models.HtmlProperties;
 using EmailBuilder.Models.Properties;
 using Newtonsoft.Json;
@@ -37,12 +38,9 @@ namespace EmailBuilder.Models.Configurations
         [JsonProperty(Required = Required.Always)]
         public SpacingBase Spacing { get; set; } = new SpacingBase();
 
-        [JsonProperty(Required = Required.Always)]
-        public override string Width  
-        {
-            get => base.Width;
-            set => base.Width = value;
-        }
+        [JsonProperty("width", Required = Required.Always)]
+        [JsonConverter(typeof(WidthConverter), SizeUnit.Both)]
+        public EbWidth Width { get; set; } = new EbWidth(SizeUnit.Both);
 
         #endregion
 
@@ -77,7 +75,7 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-                string styles = $"{Spacing.GetHtmlStyle} {WidthStyle} {DirectionStyle} {TextAlignStyle}";
+                string styles = $"{Spacing.GetHtmlStyle} {Width.WidthStyle} {DirectionStyle} {TextAlignStyle}";
                 string attributes = $"{BlockAlignmentAttr(BlockAlignment)}";
                 return $"style=\"{styles}\" {attributes}";
             }
@@ -89,8 +87,8 @@ namespace EmailBuilder.Models.Configurations
             {
                 string tableCollapseBorder = "border-collapse: separate;";
 
-                string styles = $"{WidthStyle} {Border.GetHtmlStyle} {BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {RoundedCornersStyle(RoundedCorners)} {tableCollapseBorder}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string styles = $"{Width.WidthStyle} {Border.GetHtmlStyle} {BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {RoundedCornersStyle(RoundedCorners)} {tableCollapseBorder}";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
