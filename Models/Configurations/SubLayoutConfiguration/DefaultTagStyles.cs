@@ -1,13 +1,14 @@
 ﻿
 
 using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace EmailBuilder.Models.Configurations.SubConfiguration
 {
+    [JsonObject(ItemRequired = Required.Always)]
     public class DefaultTagStyles
     {
-
         public TextTagAppearance Paragraph { get; set; } = new TextTagAppearance() { TagName = "p" };
         public TextTagAppearance Heading1 { get; set; } = new TextTagAppearance() { TagName = "h1" };
         public TextTagAppearance Heading2 { get; set; } = new TextTagAppearance() { TagName = "h2" };
@@ -19,9 +20,7 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
         public ButtonsAppearance Buttons { get; set; } = new ButtonsAppearance();
 
         public DefaultTagStyles()
-        {
-           
-        }
+        { }
 
         public string GenerateCssStyles()
         {

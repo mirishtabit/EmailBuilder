@@ -35,55 +35,45 @@ namespace EmailBuilder
 
         [HttpGet]
         [Route("BuildExample")]
+        /// This endpoint is an example of building the magazin via element classes.
         public IHttpActionResult BuildExample()
         {
             _mainGeneratorService.BuildElementClasses();
             return Ok();
         }
 
-        [HttpGet]
-        [Route("SendRenderHtmlByMail")]
+
+        [HttpGet, Route("RenderHtmlByMail")]
         /// This endpoint renders the HTML from a JSON file and returns it.
+        public async Task<IHttpActionResult> RenderHtmlByMail(string fileName,string emailAdress, bool toMail = false)
         {
-            var path = System.Web.Hosting.HostingEnvironment.MapPath("~/Static/MagazinExamples/Cafe_Largo.json");
+            var path = System.Web.Hosting.HostingEnvironment.MapPath($"~/Static/MagazinExamples/{fileName}.json");
             var json = System.IO.File.ReadAllText(path);
-            var root = JsonConvert.DeserializeObject<Root>(json);
+            Root root;
+
+            try
+            {
+                root = JsonConvert.DeserializeObject<Root>(json);
+            }
+            catch(Exception ex)
+            {
+                var failedType = ex.Data["BlockType"] as string ?? "Unknown";
+                throw new Exception($"Error deserializing {failedType}: {ex.Message}");
+            }
 
             if (root == null || root.Layout == null)
                 return BadRequest("Invalid JSON structure, or layout dont exists.");
 
             string FinalHtmlResult = _mainGeneratorService.RenderLayoutHtml(root.Layout);
 
-            MailService mailSrv = new MailService();
-            await mailSrv.SendMailAsync("Hello there", email, FinalHtmlResult);
-
-            _mailTrapService.SendEmail(FinalHtmlResult);
-
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(FinalHtmlResult, Encoding.UTF8, "text/html");
-            return ResponseMessage(response);
-
-        }
-
-        [HttpGet]
-        [Route("ShowRenderHtml")]
-        public IHttpActionResult ShowRenderHtml(string fileName, bool toMail = false)
-        {
-            var path = System.Web.Hosting.HostingEnvironment.MapPath($"~/Static/MagazinExamples/{fileName}.json");
-            var json = System.IO.File.ReadAllText(path);
-
-            var root = JsonConvert.DeserializeObject<Root>(json);
-
-            if (root == null || root.Layout == null)
-                return BadRequest("No layout object.");
-
-            string FinalHtmlResult = _mainGeneratorService.RenderLayoutHtml(root.Layout);
-
             // Send the HTML result via email
             if (toMail)
             {
-                //MailService mailSrv = new MailService();
-                //await mailSrv.SendMailAsync("Hello there", "miri.shnaider@tabit.cloud", FinalHtmlResult);
+                MailService mailSrv = new MailService();
+                await mailSrv.SendMailAsync("Hello there", emailAdress , FinalHtmlResult);
+
+                // Send the HTML result via MailTrap - always comented
+                //_mailTrapService.SendEmail(FinalHtmlResult);
             }
 
             var msg = new HttpResponseMessage(HttpStatusCode.OK)

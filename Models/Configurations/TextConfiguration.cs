@@ -1,19 +1,52 @@
 ﻿using EmailBuilder.Common;
+using EmailBuilder.Models.HtmlProperties;
 using EmailBuilder.Models.Properties;
+using Newtonsoft.Json;
 
 
 namespace EmailBuilder.Models.Configurations
 {
+    /// <summary>
+    /// Represents the configuration for a text element in an email template.
+    /// </summary>
     public class TextConfiguration : ConfigurationBase
     {
-        public override SpacingBase Spacing { get; set; } = new SpacingBase();
-        public string TextContent { get; set; } = string.Empty;
-        //public AfFont? Font { get; set; }
-        public Direction Direction { get; set; } = Direction.Parent;
-        public double LineHeight { get; set; } = 1;
-        public Position TextAlign { get; set; } = Position.Center;
-        
+        #region element properties
 
+        [JsonProperty(Required = Required.Always)]
+        public string TextContent { get; set; } = string.Empty;
+
+        [JsonProperty(Required = Required.Always)]
+        public Direction Direction { get; set; } = Direction.Parent;
+
+        [JsonProperty(Required = Required.Always)]
+        public Position TextAlign { get; set; } = Position.Center;
+
+        [JsonProperty(Required = Required.Always)]
+        public EbBorder Border { get; set; } = new EbBorder();
+
+        [JsonProperty(Required = Required.Always)]
+        public int RoundedCorners { get; set; } = 0;
+
+        [JsonProperty(Required = Required.Always)]
+        public EbBackgroundImage BackgroundImage { get; set; } = new EbBackgroundImage();
+
+        [JsonProperty(Required = Required.Always)]
+        public Position BlockAlignment { get; set; } = Position.Center;
+
+        [JsonProperty(Required = Required.Always)]
+        public SpacingBase Spacing { get; set; } = new SpacingBase();
+
+        [JsonProperty(Required = Required.Always)]
+        public override string Width  
+        {
+            get => base.Width;
+            set => base.Width = value;
+        }
+
+        #endregion
+
+        #region element style helpers
         public string DirectionStyle
         {
             get
@@ -35,7 +68,7 @@ namespace EmailBuilder.Models.Configurations
             get
             {
                 string styles = $"{Spacing.GetOuterHtmlStyle}";
-                string attributes = $"{BlockAlignmentAttr}";
+                string attributes = $"{BlockAlignmentAttr(BlockAlignment)}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
@@ -45,7 +78,7 @@ namespace EmailBuilder.Models.Configurations
             get
             {
                 string styles = $"{Spacing.GetHtmlStyle} {WidthStyle} {DirectionStyle} {TextAlignStyle}";
-                string attributes = $"{BlockAlignmentAttr}";
+                string attributes = $"{BlockAlignmentAttr(BlockAlignment)}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
@@ -56,12 +89,12 @@ namespace EmailBuilder.Models.Configurations
             {
                 string tableCollapseBorder = "border-collapse: separate;";
 
-                string styles = $"{WidthStyle} {Border.GetHtmlStyle} {BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {RoundedCornersStyle} {tableCollapseBorder}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {WidthAttr} {TableMsoAttributes}";
+                string styles = $"{WidthStyle} {Border.GetHtmlStyle} {BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {RoundedCornersStyle(RoundedCorners)} {tableCollapseBorder}";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {WidthAttr} {TableMsoAttributes} role=\"presentation\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
-
+        #endregion
     }
 
 }

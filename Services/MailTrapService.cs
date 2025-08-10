@@ -4,22 +4,15 @@ using System.Net.Mail;
 
 namespace EmailBuilder.Services
 {
+    /// <summary>
+    /// Service for sending emails using MailTrap.
+    /// </summary>
     public class MailTrapService : IMailTrapService
     {
         const string MailTrapApiUrl = "https://mailtrap.io/api/v1/inboxes/{0}/messages";
         private readonly string _apiToken = "7385c360bd47b5368ed111ff2dc76a65";
 
-        //public void SendEmail()
-        //{
-        //    var client = new RestClient("https://sandbox.api.mailtrap.io/api/send/3909961");
-        //    var request = new RestRequest();
-        //    request.AddHeader("Authorization", "Bearer " + _apiToken);
-        //    request.AddHeader("Content-Type", "application/json");
-        //    request.AddParameter("application/json", "{\"from\":{\"email\":\"hello@example.com\",\"name\":\"Mailtrap Test\"},\"to\":[{\"email\":\"miri.shnaider@tabit.cloud\"}],\"subject\":\"You are awesome!\",\"text\":\"Congrats for sending test email with Mailtrap!\",\"category\":\"Integration Test\"}", ParameterType.RequestBody);
-        //    var response = client.Post(request);
-        //    System.Console.WriteLine(response.Content);
-        //}
-
+        
         public void SendEmail(string body)
         {
             var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)

@@ -1,6 +1,7 @@
 ﻿
 using EmailBuilder.Helpers;
 using EmailBuilder.Models.Configurations.SubLayoutConfiguration;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Web.UI.WebControls;
@@ -11,9 +12,17 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
     public class LinkAppearance: DefaultBase
     {
         public override string TagName { get; set; } = "a";
+        
+        [JsonProperty(Required = Required.Always)]
         public string Color { get; set; } = "#0000EE";
+
+        [JsonProperty(Required = Required.Always)]
         public bool Italic { get; set; } = true;
+       
+        [JsonProperty(Required = Required.Always)] 
         public bool Underline { get; set; } = false;
+       
+        [JsonProperty(Required = Required.Always)] 
         public bool Bold { get; set; } = false;
 
         public LinkAppearance()

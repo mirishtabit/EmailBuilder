@@ -1,25 +1,22 @@
 ﻿using EmailBuilder.Common;
-using EmailBuilder.Models.HtmlProperties;
-using EmailBuilder.Models.Properties;
+using Newtonsoft.Json;
 
 namespace EmailBuilder.Models.Configurations
 {
+    /// <summary>
+    /// Base class for configuration of HTML elements.
+    /// </summary>
     public class ConfigurationBase
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public Position BlockAlignment { get; set; } = Position.Center;
-        public virtual SpacingBase Spacing { get; set; } = new SpacingBase();
-        public EbBorder Border { get; set; } = new EbBorder();
+        #region element properties
+       
+        [JsonProperty(Required = Required.Always)]
         public string BackgroundColor { get; set; } = "transparent";
-        public EbBackgroundImage BackgroundImage { get; set; } = new EbBackgroundImage();
-        public int RoundedCorners { get; set; } = 0;
-
 
         private string _width=string.Empty;
         private string _widthNumericValue = string.Empty;
-        
-        public string Width
+
+        public virtual string Width
         {
             get
             {
@@ -31,13 +28,16 @@ namespace EmailBuilder.Models.Configurations
             {
                 // ValidateSizeCoordinates returns true if “value” is valid
                 // and spits out the numeric part into out _widthNumericValue
-                if (PropertyValidator.ValidateSizeCordinates(value, out var numeric))
+                if (PropertyValidator.ValidateSizeCordinates(value,SizeUnit.Both,out var numeric))
                 {
                     _width = value;
                     _widthNumericValue = numeric;
                 }
             }
         }
+
+        #endregion
+        #region element style helpers
 
         public string WidthNumericValue
         {
@@ -54,6 +54,7 @@ namespace EmailBuilder.Models.Configurations
                 return $"width:{Width};";
             }
         }
+        
         public string WidthTblStyle
         {
             get
@@ -70,46 +71,14 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string BlockAlignmentAttr
+        public string BlockAlignmentAttr(Position BlockAlignment)
         {
-            get
-            {
-                return $"align='{BlockAlignment.ToString().ToLower()}'";
-            }
+           return $"align='{BlockAlignment.ToString().ToLower()}'";
         }
 
-        public string BackColorStyle(string value)
+        public string RoundedCornersStyle(int RoundedCorners)
         {
-             return !string.IsNullOrEmpty(value) ? $"background-color:{value};" : string.Empty;  
-        }
-
-        public string BackColorAttr(string value)
-        {
-             return !string.IsNullOrEmpty(value) ? $"bgcolor=\"{value}\"" : string.Empty;
-        }
-
-        public string RoundedCornersStyle
-        {
-            get
-            {
-                return $"border-radius:{RoundedCorners}px;";
-            }
-        }
-
-        public string IdAttr
-        {
-            get
-            {
-                return !string.IsNullOrEmpty(Id) ? $"id=\"{Id}\"" : string.Empty;
-            }
-        }
-
-        public string NameAttr
-        {
-            get
-            {
-                return !string.IsNullOrEmpty(Id) ? $"id=\"{Name}\"" : string.Empty;
-            }
+           return $"border-radius:{RoundedCorners}px;";
         }
 
         public string TableMsoAttributes
@@ -119,9 +88,23 @@ namespace EmailBuilder.Models.Configurations
                 return "cellpadding=\"0\" cellspacing=\"0\" border=\"0\"";
             }
         }
+
+        public string BackColorStyle(string value)
+        {
+           return !string.IsNullOrEmpty(value) ? $"background-color:{value};" : string.Empty;  
+        }
+
+        public string BackColorAttr(string value)
+        {
+           return !string.IsNullOrEmpty(value) ? $"bgcolor=\"{value}\"" : string.Empty;
+        }
+
+
+        #endregion
+
         public ConfigurationBase()
         {
-           
+
         }
 
     }

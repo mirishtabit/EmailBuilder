@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace EmailBuilder.Services
 {
-
+    /// <summary>
+    /// Represents a service for sending emails using an external API.
+    /// </summary>
     public class MailService : IMailService
     {
         private static HttpClient httpClient = new HttpClient();

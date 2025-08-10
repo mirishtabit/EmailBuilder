@@ -1,11 +1,38 @@
-﻿using EmailBuilder.Common;
+﻿
+using EmailBuilder.Models.Configurations.SubConfiguration;
+using EmailBuilder.Models.HtmlProperties;
+using EmailBuilder.Models.Properties;
+using Newtonsoft.Json;
 
 namespace EmailBuilder.Models.Configurations
 {
+    /// <summary>
+    /// Represents the configuration for a section element in an email template.
+    /// </summary>
+
     public class SectionConfiguration:ConfigurationBase
     {
+        #region element properties
+
+        [JsonProperty(Required = Required.Always)]
+        public EbBorder Border { get; set; } = new EbBorder();
+
+        [JsonProperty(Required = Required.Always)]
+        public int RoundedCorners { get; set; } = 0;
+
+        [JsonProperty(Required = Required.Always)]
+        public SpacingBase Spacing { get; set; } = new SpacingBase();
+
+        [JsonProperty(Required = Required.Always)]
+        public EbBackgroundImage BackgroundImage { get; set; } = new EbBackgroundImage();
+
+        [JsonProperty(Required = Required.Always)]
         public string BodyColor { get; set; } = string.Empty;
 
+
+        #endregion
+
+        #region element style helpers
         public string Td1Style
         {
             get
@@ -21,7 +48,7 @@ namespace EmailBuilder.Models.Configurations
             get
             {
                 string styles = $"{BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {WidthStyle}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {WidthAttr} {TableMsoAttributes}";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {WidthAttr} {TableMsoAttributes} role=\"presentation\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
@@ -30,8 +57,8 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-                string styles = $"{BackColorStyle(BodyColor)} {RoundedCornersStyle} {Border.GetHtmlStyle} {WidthTblStyle}";
-                string attributes = $"{BackColorAttr(BodyColor)} {WidthAttr} {TableMsoAttributes}";
+                string styles = $"{BackColorStyle(BodyColor)} {RoundedCornersStyle(RoundedCorners)} {Border.GetHtmlStyle} {WidthTblStyle}";
+                string attributes = $"{BackColorAttr(BodyColor)} {WidthAttr} {TableMsoAttributes} role=\"presentation\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
@@ -54,7 +81,11 @@ namespace EmailBuilder.Models.Configurations
                 return $"style=\"{styles}\" {attributes}";
             }
         }
- 
+        #endregion
+        
+        public SectionConfiguration()
+        {
+        }
     }
 
 }

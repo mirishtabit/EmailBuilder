@@ -1,8 +1,4 @@
-﻿using EmailBuilder.Common;
-using EmailBuilder.Models.Configurations;
-using HtmlAgilityPack;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +7,16 @@ namespace EmailBuilder.Helpers
 {
     public static class HtmlHelper
     {
-
-        public static Dictionary<string, string> CreateTagStyleDictionary(string styleValue,ref Dictionary<string, string> styleDict)
+        /// <summary>
+        /// Parses a CSS style string into a dictionary of property-value pairs.
+        /// </summary>
+        /// <param name="styleValue"></param>
+        /// <param name="styleDict"></param>
+        public static Dictionary<string, string> CreateTagStyleDictionary(string styleValue, ref Dictionary<string, string> styleDict)
         {
+            if (styleDict == null)
+                styleDict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
             if (!string.IsNullOrWhiteSpace(styleValue))
             {
                 // Split the raw style text into individual declarations
@@ -44,9 +47,12 @@ namespace EmailBuilder.Helpers
             return styleDict;
         }
 
+        /// <summary>
+        /// Generates a CSS style string from the specified dictionary of style properties and values.
+        /// </summary>
         public static string RenderStyleString(Dictionary<string, string> tagStyleDict)
         {
-            var sb = new StringBuilder("");
+            var sb = new StringBuilder();
             if (tagStyleDict != null && tagStyleDict.Count > 0)
             {
                 foreach (var elem in tagStyleDict)
@@ -57,20 +63,13 @@ namespace EmailBuilder.Helpers
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Adds a key-value pair to the specified dictionary if the key does not already exist.
-        /// </summary>
-        /// <remarks>If the specified key already exists in the dictionary, the method does nothing.
-        /// Otherwise, the key-value pair is added with the key set to "color" and the value set to <paramref
-        /// name="propValue"/>.</remarks>
-        /// <param name="Dict">The dictionary to which the key-value pair will be added.</param>
-        /// <param name="propKey">The key to check for existence in the dictionary.</param>
-        /// <param name="propValue">The value to associate with the key if the key does not exist.</param>
+       
         public static void AddToDictionary(Dictionary<string, string> Dict, string propKey, string propValue)
         {
-            if (Dict.ContainsKey(propKey))
+            if (string.IsNullOrEmpty(propKey) || string.IsNullOrEmpty(propValue))
                 return;
-            else
+
+            if (!Dict.ContainsKey(propKey))
                 Dict.Add(propKey, propValue);
 
         }

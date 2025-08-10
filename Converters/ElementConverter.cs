@@ -3,12 +3,22 @@ using EmailBuilder.Models.HtmlObjects;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Web.UI.WebControls;
 
 namespace EmailBuilder.Converters
 {
+    /// <summary>
+    /// Provides custom JSON serialization and deserialization for layout object and its subclasses.
+    /// </summary>
+    /// <remarks>Enables polymorphic handling of derived types when reading and writing JSON. During deserialization, it inspects the "Type"
+    /// </remarks>
     public class ElementConverter : JsonConverter
     {
-        // Tell Json.NET which types this converter can handle
+        /// <summary>
+        /// Indicates whether this converter can convert the specified object type.
+        /// </summary>
+        /// <param name="objectType"></param>
+        /// <returns></returns>
         public override bool CanConvert(Type objectType)
         {
             return typeof(ElementBase).IsAssignableFrom(objectType);
@@ -20,7 +30,21 @@ namespace EmailBuilder.Converters
         {
             // Load the JSON for inspection
             var jObject = JObject.Load(reader);
+            ElementBase instance = TypePropertyCheck(objectType, jObject);
 
+            // Populate the instance’s properties from the JSON
+            serializer.Populate(jObject.CreateReader(), instance);
+          
+            return instance;
+        }
+
+        /// <summary>
+        /// Creates an ElementBase subclass instance based on the "Type" property in the JSON or the provided objectType.
+        /// </summary>
+        /// <returns>Instance of the appropriate ElementBase subclass.</returns>
+        /// <exception cref="NotSupportedException">Thrown if type is unsupported.</exception>
+        private static ElementBase TypePropertyCheck(Type objectType, JObject jObject)
+        {
             // Try to read "Type" from the JSON
             JToken typeToken = jObject["Type"];
             string typeName = typeToken != null
@@ -46,17 +70,15 @@ namespace EmailBuilder.Converters
                     instance = new EbSection();
                     break;
                 case "IMAGE":
-                    instance = new EbImage();
+                    instance = new EbImage("100%");
                     break;
                 case "TEXT":
                     instance = new EbText();
                     break;
                 default:
-                    throw new NotSupportedException($"Unsupported TypeName: {typeName}");
+                    throw new NotSupportedException($"Missing or Unsupported TypeName: {typeName}");
             }
 
-            // Populate the instance’s properties from the JSON
-            serializer.Populate(jObject.CreateReader(), instance);
             return instance;
         }
 
@@ -66,5 +88,37 @@ namespace EmailBuilder.Converters
             var jObject = JObject.FromObject(value, serializer);
             jObject.WriteTo(writer);
         }
+
+        //private string GetJsonNameForErrorMsg(string objName)
+        //{
+        //    switch (objName.ToUpperInvariant())
+        //    {
+        //        case "EBLAYOUT":
+        //            return "Layout";
+        //        case "EBSECTION":
+        //            return "Section";
+        //        default: return objName;
+
+        //    }
+        //}
+        //private static void ValidateJsonStructure(JObject jObject)
+        //{
+        //    // Check for "Configuration" property
+        //    if (jObject["Configuration"] == null)
+        //        throw new JsonException("Missing 'Configuration' property in layout JSON.");
+
+        //    // Check for "Sections" property and ensure it's a non-empty array
+        //    var sectionsToken = jObject["Sections"];
+        //    if (sectionsToken == null || sectionsToken.Type != JTokenType.Array || !sectionsToken.HasValues)
+        //        throw new JsonException("Missing or empty 'Sections' array in layout JSON.");
+
+        //    // Optionally, check each section for required properties
+        //    foreach (var section in sectionsToken.Children<JObject>())
+        //    {
+        //        if (section["Configuration"] == null)
+        //            throw new JsonException("Section missing 'Configuration' property.");
+        //        // Add more checks as needed
+        //    }
+        //}
     }
 }

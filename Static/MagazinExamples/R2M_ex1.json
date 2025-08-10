@@ -77,6 +77,8 @@
     },
     "Sections": [
       {
+        "Id": "sec1",
+        "Name": "Main_Section",
         "Configuration": {
           "BackgroundImage": {
             "BackgroundImageEnabled": false,
@@ -84,7 +86,6 @@
             "ImageSize": "cover",
             "ImagePosition": "center",
             "ImageRepeat": "NoRepeat"
-
           },
           "Border": {
             "BorderEnabled": false,
@@ -290,6 +291,8 @@
         ]
       },
       {
+        "Id": "sec4",
+        "Name": "Main_Section",
         "Type": "SECTION",
         "Configuration": {
           "Border": {
@@ -403,6 +406,8 @@
         ]
       },
       {
+        "Id": "sec5",
+        "Name": "Main_Section5",
         "Type": "SECTION",
         "Configuration": {
           "BackgroundImage": {

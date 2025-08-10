@@ -16,13 +16,16 @@ namespace EmailBuilder.Models.HtmlProperties
         Contain
     }
 
+    /// <summary>
+    /// Represents the background image properties for an email element.
+    /// </summary>
     public class EbBackgroundImage
     {
         public bool BackgroundImageEnabled { get; set; } = false;
         public string ImageUrl { get; set; } = string.Empty;
-        public ImageRepeat ImageRepeat { get; set; }
-        public Position ImagePosition { get; set; }
-        public ImageSize ImageSize { get; set; }
+        public ImageRepeat ImageRepeat { get; set; } = ImageRepeat.NoRepeat;
+        public Position ImagePosition { get; set; } = Position.Center;
+        public ImageSize ImageSize { get; set; } = ImageSize.Contain;
 
 
         public EbBackgroundImage() { }
@@ -35,6 +38,13 @@ namespace EmailBuilder.Models.HtmlProperties
             ImageSize = size;
         }
 
+        private string SafeUrl
+        {   get
+            {
+                return string.IsNullOrEmpty(ImageUrl) ? string.Empty : ImageUrl.Replace("'", "\\'");
+            }
+        }
+
         public string GetHtmlStyle
         {
             get
@@ -43,7 +53,8 @@ namespace EmailBuilder.Models.HtmlProperties
                 {
                     return string.Empty; // No background image set
                 }
-                return $"background-image:url('{ImageUrl}'); " +
+                
+                return $"background-image:url('{SafeUrl}'); " +
                        $"background-repeat:{ImageRepeat.ToString().Replace('_','-').ToLower()}; " +
                        $"background-position:{ImagePosition.ToString().ToLower()}; " +
                        $"background-size:{ImageSize.ToString().ToLower()};";

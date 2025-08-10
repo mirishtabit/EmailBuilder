@@ -4,20 +4,31 @@ using System.Text.RegularExpressions;
 
 namespace EmailBuilder.Common
 {
+    public enum SizeUnit
+    {
+        PX,
+        Percent,
+        Both
+    }
+
     public static class PropertyValidator
     {
         /// <summary>
-        /// Validates if the given value is a valid CSS coordinate.
+        /// Validates if a string is a valid CSS size (px or %) for the specified unit. Returns true and outputs the numeric value if valid.
         /// </summary>
-        /// <param name="value">The value to validate.</param>
-        /// <returns>True if the value is a valid CSS coordinate, otherwise false.</returns>
-        public static bool ValidateSizeCordinates(string value, out string widthNumericValue)
+        /// <param name="value">CSS size string (e.g., "120px", "80%").</param>
+        /// <param name="sizeUnit">Allowed unit(s): PX, Percent, or Both.</param>
+        /// <param name="widthNumericValue">Outputs the numeric value if valid.</param>
+        /// <returns>True if valid; otherwise, false.</returns>
+        public static bool ValidateSizeCordinates(string value, SizeUnit sizeUnit, out string widthNumericValue)
         {
-            widthNumericValue = string.Empty; // Corrected the variable declaration
+             string unitRegex = SizeUnitRegex(sizeUnit);
+
+             widthNumericValue = string.Empty; // Corrected the variable declaration
 
             if (string.IsNullOrEmpty(value)) return false;
 
-            var match = Regex.Match(value.Trim(), @"^(\d+(?:\.\d+)?)(px|%)$");
+            var match = Regex.Match(value.Trim(), unitRegex);
             if (match.Success)
             {
                 string num = match.Groups[1].Value;
@@ -46,7 +57,23 @@ namespace EmailBuilder.Common
                     }
                 }
             }
-            return false; // Invalid value
+            return false; 
+        }
+
+        private static string SizeUnitRegex(SizeUnit sizeUnit)
+        {
+            switch (sizeUnit)
+            {
+                case SizeUnit.PX:
+                    return @"^(\d+(?:\.\d+)?)(px)$";
+                case SizeUnit.Percent:
+                    return @"^(\d+(?:\.\d+)?)(%)$";
+                case SizeUnit.Both:
+                    return @"^(\d+(?:\.\d+)?)(px|%)$";
+                default:
+                    throw new ArgumentException("Invalid size unit specified.");
+            }
+            
         }
     }
 }

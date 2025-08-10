@@ -1,24 +1,26 @@
 using EmailBuilder.Models.Blocks;
 using EmailBuilder.Models.Configurations;
+using Newtonsoft.Json;
 using System;
 
 namespace EmailBuilder.Models.HtmlObjects
 {
+    /// <summary>
+    /// Represents an image element in the layout, providing configuration and HTML rendering logic.
+    /// </summary>
     public class EbImage : ElementBase
     {
-
+        [JsonProperty(Required = Required.Always)]
         public new ImageConfiguration Configuration
         {
             get { return (ImageConfiguration)base.Configuration; }
             set { base.Configuration = value; }
         }
 
+
         public EbImage()
         {
-            base.Configuration = new ImageConfiguration
-            {
-                Width = "100%"
-            };
+           
         }
 
         public EbImage(String width) 
@@ -31,7 +33,7 @@ namespace EmailBuilder.Models.HtmlObjects
 
         protected override string RenderContainer(string innerHtml)
         {
-            string elemStr = $"<{ElementTagName} {Configuration.InnerStyle}/>";
+            string elemStr = $"<{ElementTagName} {IdAttr} {NameAttr} {Configuration.InnerStyle}/>";
 
             if (Configuration.Link != null)
             {

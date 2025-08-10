@@ -2,6 +2,7 @@
 using EmailBuilder.Helpers;
 using EmailBuilder.Models.Configurations.SubLayoutConfiguration;
 using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace EmailBuilder.Models.Configurations.SubConfiguration
@@ -9,7 +10,11 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
     public class DefaultGeneralStyles : DefaultBase
     {
         public override string TagName { get; set; } = "h1,h2,h3,h4,p";
+        
+        [JsonProperty(Required = Required.Always)]
         public double LineHeight { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
         public Direction Direction { get; set; }
 
        

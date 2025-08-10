@@ -2,6 +2,7 @@
 using EmailBuilder.Helpers;
 using EmailBuilder.Models.Configurations.SubLayoutConfiguration;
 using EmailBuilder.Models.HtmlProperties;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 
@@ -10,17 +11,34 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
     public class ButtonsAppearance: DefaultBase
     {
         public override string TagName { get; set; } = "button";
+
+        [JsonProperty(Required = Required.Always)]
         public string FontFamily { get; set; } = "Arial, Helvetica, sans-serif";
+
+        [JsonProperty(Required = Required.Always)]
         public int FontSize { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
         public bool Bold { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
         public bool Italic { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
         public bool Underline { get; set; }
+        
+        [JsonProperty(Required = Required.Always)]
         public int ButtonRadius { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
         public string BackgroundColor { get; set; } = "transparent";
-        public AfBorderSide Borders { get; set; } = new AfBorderSide();
+
+        public EbBorderSide Borders { get; set; } = new EbBorderSide();
 
         private string _widthNumericValue = string.Empty;
         private string _width = string.Empty;
+
+        [JsonProperty(Required = Required.Always)]
         public string Width
         {
             get
@@ -33,7 +51,7 @@ namespace EmailBuilder.Models.Configurations.SubConfiguration
             {
                 // ValidateSizeCoordinates returns true if “value” is valid
                 // and spits out the numeric part into out _widthNumericValue
-                if (PropertyValidator.ValidateSizeCordinates(value, out var numeric))
+                if (PropertyValidator.ValidateSizeCordinates(value, SizeUnit.Both, out var numeric))
                 {
                     _width = value;
                     _widthNumericValue = numeric;

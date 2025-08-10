@@ -1,12 +1,17 @@
-﻿using EmailBuilder.Extensions;
+﻿using EmailBuilder.Common;
+using EmailBuilder.Extensions;
 using EmailBuilder.Models.Blocks;
+using EmailBuilder.Models.Configurations;
 using EmailBuilder.Models.Configurations.SubConfiguration;
+using EmailBuilder.Models.HtmlObjects;
+using EmailBuilder.Models.HtmlProperties;
+using EmailBuilder.Models.Properties;
+using EmailBuilder.Models.Properties.Spacing;
 using EmailBuilder.Services.Interfaces;
 using HtmlAgilityPack;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+
 
 namespace EmailBuilder.Services
 {
@@ -63,47 +68,181 @@ namespace EmailBuilder.Services
             return doc;
         }
 
-     
-       
-
-
+        /// <summary>
+        /// Builds a sample EbLayout object with sections and elements, 
+        /// demonstrating how to construct a layout in code for testing or example purposes.
+        /// </summary>
         public void BuildElementClasses()
         {
-            //// building the head container
-            //AfSection mainContainer = new AfSection();
-            //mainContainer.Type = ClientElementType.SECTION;
-            //mainContainer.Configuration = new ElementConfiguration()
-            //{
-            //    Width = "300px",
-            //    BackgroundColor = "#FFFFF",
-            //    BlockAlignment = Align.CENTER,
-            //    Spacing = new AfSpacing() { MarginBottom = 5, MarginTop = 5 }
-            //};
+            // building the head container
+            EbLayout layout = new EbLayout();
 
-            ////Create an inner element - image
-            //AfImage afimg = new AfImage("150px");
-            //afimg.Type = ClientElementType.IMAGE;
-            //afimg.Id = "afImage";
+            layout.Configuration = new LayoutConfiguration
+            {
+                BodyColor = "#FFFFFF",
+                Width = "600px",/// need to be changed to body width
+                DefaultTagStyles = new DefaultTagStyles
+                {
+                    Paragraph = new TextTagAppearance { FontFamily = "Arial", FontSize = 16, Color = "#333333" },
+                    Heading1 = new TextTagAppearance { FontFamily = "Arial", FontSize = 32, Color = "#111111" }
+                },
+                DefaultGeneralStyles = new DefaultGeneralStyles
+                {
+                    LineHeight = 1.5,
+                    Direction = Direction.Ltr
+                },
+                Spacing = new EbLayoutSpacing
+                {
+                    PaddingEnabled = true,
+                    PaddingTop = 10,
+                    PaddingBottom = 10,
+                    PaddingLeft = 10,
+                    PaddingRight = 10
+                },
+                BackgroundColor = "lightgray"
+            };
+            List<EbSection> sections = new List<EbSection>();
+            EbSection sec = new EbSection();
+            sec.Objects = new List<ElementBase>();
+            sec.Id = "Main Section";
+            sec.Name = "Header Section";
+            SectionConfiguration confg1 = new SectionConfiguration();
+            confg1.Spacing = new SpacingBase()
+            {
+                MarginEnabled = true,
+                MarginTop = 20,
+                MarginBottom = 20,
+                PaddingEnabled = true,
+                PaddingTop = 10,
+                PaddingBottom = 10,
+                PaddingLeft = 10,
+                PaddingRight = 10
+            };
+            confg1.BackgroundColor = "#F5F5F5";
 
-            //afimg.Configuration = new ImageConfiguration()
-            //{
-            //    ImageUrl = "~/wine.png",
-            //    AltText = "yekev"
-            //};
+            sec.Configuration = confg1;
+            sec.Objects = new List<ElementBase>
+                {
+                new EbText
+                {
+                    Id = "headerText",
+                    Name = "Header",
+                    Type = ClientElementType.Text,
+                    Configuration = new TextConfiguration
+                    {
+                        TextContent = "<h1>Cafe Largo Test</h1>",
+                        Width = "100%",
+                        BackgroundColor = "#F5F5F5",
+                        Spacing = new SpacingBase
+                        {
+                            MarginEnabled = true,
+                            MarginTop = 0,
+                            MarginBottom = 10
+                        }
+                    }
+                }
 
-            //mainContainer.Objects = new List<Element>();
-            //mainContainer.Objects.Add(afimg);
+            };
+            sections.Add(sec);
 
-            //// create socond element - a text
-            //AfText afText = new AfText();
-            //afText.Type = ClientElementType.TEXT;
-            //afText.Configuration = new TextConfiguration()
-            //{
-            //    Text = $"הימים האחרונים רגישים, מורכבים ומלאי חוסר וודאות.\r\n\r\nאנחנו פועלים במתכונת מצומצמת אך בוחרים לפתוח את הלב\r\n\r\nוגם את היקב, בצורה שקטה, בטוחה ומחבקת\r\n\r\nעבור כל מי שצריך לקחת לגימה של רוגע ושלווה."
-            //};
-
+            sections.Add(new EbSection
+            {
+                Id = "section2",
+                Name = "Image Section",
+                Type = ClientElementType.Section,
+                Configuration = new SectionConfiguration
+                {
+                    BackgroundColor = "#FFFFFF",
+                    Border = new EbBorder { BorderEnabled = false, Sides = new List<EbBorderSide>() },
+                    Spacing = new SpacingBase
+                    {
+                        MarginEnabled = true,
+                        MarginTop = 10,
+                        MarginBottom = 10,
+                        PaddingEnabled = true,
+                        PaddingTop = 10,
+                        PaddingBottom = 10,
+                        PaddingLeft = 10,
+                        PaddingRight = 10
+                    }
+                },
+                Objects = new List<ElementBase>
+            {
+                new EbImage
+                {
+                    Id = "mainImage",
+                    Name = "Main Image",
+                    Type = ClientElementType.Image,
+                    Configuration = new ImageConfiguration
+                    {
+                        ImageUrl = "https://media.istockphoto.com/id/1301017778/photo/three-glasses-of-white-rose-and-red-wine-on-a-wooden-barrel.jpg",
+                        AltText = "Wine Glasses",
+                        Width = "400px",
+                        RoundedCorners = 8,
+                        BackgroundColor = "#FFFFFF",
+                        Spacing = new SpacingBase
+                        {
+                            MarginEnabled = true,
+                            MarginTop = 10,
+                            MarginBottom = 10
+                        },
+                        Link = new EbLink
+                        {
+                            LinkEnabled = true,
+                            Url = "https://cafelargo.com/",
+                            LinkTitle = "Cafe Largo"
+                        },
+                        Border = new EbBorder { BorderEnabled = false, Sides = new List<EbBorderSide>() }
+                    }
+                }
+            }
+            });
+            sections.Add(new EbSection
+            {
+                Id = "section3",
+                Name = "Text Section",
+                Configuration = new SectionConfiguration
+                {
+                    BackgroundColor = "#FFFFFF",
+                    Spacing = new SpacingBase
+                    {
+                        MarginEnabled = true,
+                        MarginTop = 10,
+                        MarginBottom = 10,
+                        PaddingEnabled = true,
+                        PaddingTop = 10,
+                        PaddingBottom = 10,
+                        PaddingLeft = 10,
+                        PaddingRight = 10
+                    }
+                },
+                Objects = new List<ElementBase>
+            {
+                new EbText
+                {
+                    Id = "mainText",
+                    Name = "Main Text",
+                    Type = ClientElementType.Text,
+                    Configuration = new TextConfiguration
+                    {
+                        TextContent = "<p>הימים האחרונים רגישים, מורכבים ומלאי חוסר וודאות.<br>אנחנו פועלים במתכונת מצומצמת אך בוחרים לפתוח את הלב וגם את היקב, בצורה שקטה, בטוחה ומחבקת עבור כל מי שצריך לקחת לגימה של רוגע ושלווה.</p>",
+                        Width = "100%",
+                        TextAlign = Position.Left,
+                        Direction = Direction.Rtl,
+                        BackgroundColor = "#FFFFFF",
+                        Spacing = new SpacingBase
+                        {
+                            MarginEnabled = true,
+                            MarginTop = 0,
+                            MarginBottom = 0
+                        }
+                    }
+                }
+            }
+            });
+            
+            layout.Sections = sections;
         }
-
     }
-
 }
+ 

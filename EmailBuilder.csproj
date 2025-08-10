@@ -187,14 +187,12 @@
     <Compile Include="Models\Configurations\SubLayoutConfiguration\LinkAppearance.cs" />
     <Compile Include="Models\Configurations\SubLayoutConfiguration\TextTagAppearancs.cs" />
     <Compile Include="Models\Configurations\TextConfiguration.cs" />
-    <Compile Include="Models\Configurations\TopContainerConfiguration.cs" />
     <Compile Include="Models\Defaults_not_In_Use\Defaults.cs" />
     <Compile Include="Models\Properties\EbBackgroundImage.cs" />
     <Compile Include="Models\Properties\EbBorder.cs" />
     <Compile Include="Models\Properties\EbFont.cs" />
+    <Compile Include="Models\Properties\EbWidth.cs" />
     <Compile Include="Models\Properties\EbLink.cs" />
-    <Compile Include="Models\Properties\Spacing\AfImgSpacing.cs" />
-    <Compile Include="Models\Properties\Spacing\AfTextSpacing.cs" />
     <Compile Include="Models\Properties\Spacing\EbLayoutSpacing.cs" />
     <Compile Include="Models\Properties\Spacing\SpacingBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,7 +218,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Static\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Defaults_not_In_Use\defaultValues.json" />

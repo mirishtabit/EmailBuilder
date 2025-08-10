@@ -1,21 +1,24 @@
 
 using EmailBuilder.Models.Blocks;
 using EmailBuilder.Models.Configurations;
+using Newtonsoft.Json;
 
 namespace EmailBuilder.Models.HtmlObjects
 {
+    /// <summary>
+    /// represents a text element in the layout, providing configuration and HTML rendering logic.
+    /// </summary>
     public class EbText : ElementBase
     {
+        [JsonProperty(Required = Required.Always)]
         public new TextConfiguration Configuration
         {
             get { return (TextConfiguration)base.Configuration; }
             set { base.Configuration = value; }
         }
-      
+
         public EbText()
-        {
-            Configuration = new TextConfiguration();
-        }
+        { }
 
         public override string RenderElementHtml(string innerHtml)
         {
@@ -24,7 +27,7 @@ namespace EmailBuilder.Models.HtmlObjects
 
         protected override string RenderContainer(string innerHtml)
         {
-            return $"<{ElementTagName}>{innerHtml}</{ElementTagName}>";
+            return $"<{ElementTagName} {IdAttr} {NameAttr}>{innerHtml}</{ElementTagName}>";
         }
 
         protected override string RenderOuterElementHtml(string elemStr)

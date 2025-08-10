@@ -11,6 +11,9 @@
         _self
     }
 
+    /// <summary>
+    /// Represents a link element with properties for enabling the link, specifying the type, target, URL, and title.
+    /// </summary>
     public class EbLink
     {
         public bool LinkEnabled { get; set; } = false;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace EmailBuilder.Models.HtmlProperties
@@ -20,28 +21,33 @@ namespace EmailBuilder.Models.HtmlProperties
         All
     }
 
-    public class AfBorderSide
+    /// <summary>
+    /// Represents a single border side with its properties.
+    /// </summary>
+    public class EbBorderSide
     {
-        public BorderSide BorderSide { get; set; }
+        public BorderSide BorderSide { get; set; } = BorderSide.Top;
         public int BorderWidth { get; set; } = 0;
         public string BorderColor { get; set; } = "#000000";
         public BorderStyle BorderStyle { get; set; } = BorderStyle.Solid;
     }
 
-
+    /// <summary>
+    /// Represents the border properties for an email element.
+    /// </summary>
     public class EbBorder
     {
         public bool BorderEnabled { get; set; } = false;
-        public List<AfBorderSide> Sides { get; set; } = new List<AfBorderSide>();
+        public List<EbBorderSide> Sides { get; set; } = new List<EbBorderSide>();
        
         public EbBorder()
         {
-            Sides = new List<AfBorderSide>
+            Sides = new List<EbBorderSide>
             {
-                new AfBorderSide { BorderSide = BorderSide.Top },
-                new AfBorderSide { BorderSide = BorderSide.Right },
-                new AfBorderSide { BorderSide = BorderSide.Bottom},
-                new AfBorderSide { BorderSide = BorderSide.Left }
+                new EbBorderSide { BorderSide = BorderSide.Top },
+                new EbBorderSide { BorderSide = BorderSide.Right },
+                new EbBorderSide { BorderSide = BorderSide.Bottom},
+                new EbBorderSide { BorderSide = BorderSide.Left }
             };
         }
 
@@ -55,12 +61,19 @@ namespace EmailBuilder.Models.HtmlProperties
                 }
                
                 StringBuilder sbStyle = new StringBuilder(string.Empty);
-                
+
+                if (Sides == null)
+                    return string.Empty;
+
                 foreach (var border in Sides)
                 {
-                    if (border.BorderWidth <= 0)
+                    if (border.BorderWidth < 0)
                     {
-                        continue; // Skip borders with zero width
+                        throw new ArgumentException("Border width must be greater than zero.", nameof(border.BorderWidth));  
+                    }
+                    if (border.BorderWidth == 0)
+                    {
+                        continue;
                     }
                     sbStyle.Append(BuildBorderStyle(border));
                 } 
@@ -68,7 +81,7 @@ namespace EmailBuilder.Models.HtmlProperties
             }
         }
 
-        private string BuildBorderStyle(AfBorderSide br)
+        private string BuildBorderStyle(EbBorderSide br)
         {
             string styleValue = $"{br.BorderWidth}px {br.BorderStyle.ToString().ToLower()} {br.BorderColor}";
 

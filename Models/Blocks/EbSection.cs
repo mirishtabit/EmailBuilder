@@ -1,25 +1,31 @@
-﻿using EmailBuilder.Common;
-using EmailBuilder.Models.Blocks;
+﻿using EmailBuilder.Models.Blocks;
 using EmailBuilder.Models.Configurations;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace EmailBuilder.Models.HtmlObjects
 {
+    /// <summary>
+    /// Represents a section element in the layout, containing configuration and a collection of child elements.
+    /// </summary>
     public class EbSection : ElementBase
     {
+        [JsonProperty(Required = Required.Always)]
         public new SectionConfiguration Configuration
         {
             get { return (SectionConfiguration)base.Configuration; }
             set { base.Configuration = value; }
         }
-        public EbSection()
-        {
-            Configuration = new SectionConfiguration();
-        }
+
+        [JsonProperty(Required = Required.Always)]
+        public List<ElementBase> Objects { get; set; }
+
+        public EbSection(){ }
 
 
         protected override string RenderContainer(string innerHtml)
         {
-            return $"<{ElementTagName} {Configuration.TableMsoAttributes} width=\"100%\">{innerHtml}</{ElementTagName}>";
+            return $"<{ElementTagName} {IdAttr} {NameAttr} {Configuration.TableMsoAttributes} width=\"100%\">{innerHtml}</{ElementTagName}>";
         }
 
         protected override string RenderOuterElementHtml(string elemStr)

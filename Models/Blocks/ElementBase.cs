@@ -2,7 +2,7 @@
 using EmailBuilder.Converters;
 using EmailBuilder.Models.Configurations;
 using Newtonsoft.Json;
-using System.Collections.Generic;
+
 
 namespace EmailBuilder.Models.Blocks
 {
@@ -10,23 +10,28 @@ namespace EmailBuilder.Models.Blocks
     /// Abstract base class representing an HTML element.
     /// All element classes should inherit from this class.
     /// </summary>
-
     [JsonConverter(typeof(ElementConverter))]
     public abstract class ElementBase
     {
+        [JsonProperty(Required = Required.Always)]
+        public virtual string Id { get; set; }
+
+        [JsonProperty(Required = Required.Always)]
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// The type of element as received from the client (e.g., Text, Image, etc.)."
         /// </summary>
         public ClientElementType Type { get; set; }
-        public ConfigurationBase Configuration { get; set; } = new ConfigurationBase();
-        public List<ElementBase> Objects { get; set; }
 
-       
+        public ConfigurationBase Configuration { get; set; }
+
+
         protected string ElementTagName
         {
             get { return GetHtmlElementTag(); }
         }
+
         private string GetHtmlElementTag()
         {
             switch (Type)
@@ -40,7 +45,22 @@ namespace EmailBuilder.Models.Blocks
                     return "div";
 
                 default:
-                    return "div"; 
+                    return "div";
+            }
+        }
+
+        public string IdAttr
+        {
+            get { 
+               return !string.IsNullOrEmpty(Id) ? Id : string.Empty;
+            }
+        }
+
+        public string NameAttr
+        {
+            get
+                {
+                return !string.IsNullOrEmpty(Name) ? $"name=\"{Name}\"" : string.Empty;
             }
         }
 

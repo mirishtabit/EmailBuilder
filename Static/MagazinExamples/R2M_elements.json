@@ -1,10 +1,12 @@
 ﻿{
   "Layout": {
-    "FontResources": [
-
-    ],
     "Configuration": {
       "BodyWidth": "640px",
+      "BodyColor": "transparent",
+      "BackgroundColor": "transparent",
+      "BackgroundImage": {
+        "BackgroundImageEnabled": false
+      },
       "DefaultTagStyles": {
         "Paragraph": {
           "FontFamily": "Arial",
@@ -62,7 +64,8 @@
     },
     "Sections": [
       {
-        "Type": "SECTION",
+        "Id": "",
+        "Name": "",
         "Configuration": {
           "BackgroundImage": {
             "BackgroundImageEnabled": false
@@ -79,6 +82,8 @@
             ]
           },
           "BackgroundColor": "#E5E6E8",
+          "RoundedCorners": 0,
+          "BodyColor": "transparent",
           "Spacing": {
             "MarginEnabled": true,
             "MarginTop": 10,
@@ -87,39 +92,75 @@
         },
         "Objects": [
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<h2 style=\"font-family: 'Montserrat', Arial, sans-serif; letter-spacing: 5px;margin:0px;padding:0px;\">WE R2M!</h2>",
               "Width": "400px",
               "Direction": "ltr",
+              "TextAlign": "center",
+              "RoundedCorners": 0,
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
+              "BlockAlignment": "center",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
               "Spacing": {
                 "MarginEnabled": true,
                 "MarginTop": 60,
                 "marginBottom": 5
-              }
+              },
+              "BackgroundColor": "transparent"
             }
           },
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<span style=\"font-family: 'Georgia', serif;margin:0px;padding:0px;font-style: italic;font-size:20px;\">--------  Club  --------</span>",
               "Width": "100%",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
               "Spacing": {
                 "MarginEnabled": true,
                 "marginBottom": 50
-
+              },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
               }
             }
           },
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<h1 style=\"font-family: 'Noto Sans Hebrew', sans-serif;line-height:1;font-size:60px;margin:0px;padding:0px;letter-spacing:2px;\">יש לנו משהו בשבילכם</h1>",
               "Width": "400px",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "MarginEnabled": true,
                 "MarginTop": 20,
@@ -128,12 +169,24 @@
             }
           },
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<h3 style=\"margin:0px;padding:0px;\">שימו לב! רצינו לוודא שאתם מכירים את <br> כל ההזדמנויות המיוחדות שמחכות לכם<br> בהוטל מונטיפיורי</h3>",
               "Width": "500px",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "MarginEnabled": true,
                 "MarginBottom": 40
@@ -143,7 +196,8 @@
         ]
       },
       {
-        "Type": "SECTION",
+        "Id": "",
+        "Name": "",
         "Configuration": {
           "Border": {
             "BorderEnabled": false,
@@ -160,6 +214,8 @@
             "BackgroundImageEnabled": false
           },
           "BackgroundColor": "#ACA7A5",
+          "BodyColor": "transparent",
+          "RoundedCorners": 0,
           "Spacing": {
             "PaddingEnabled": true,
             "PaddingTop": 40,
@@ -170,12 +226,24 @@
         },
         "Objects": [
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<p style=\"color:#FAFAFA;margin:0px;padding:0px;\">חופשה אורבנית בעיר הלבנה</p>",
               "Width": "500px",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "PaddingEnabled": true,
                 "PaddingTop": 0,
@@ -184,12 +252,24 @@
             }
           },
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<h2 style=\"color:#FAFAFA;\">HOTEL MONTEFIORE</h2>",
               "Width": "100%",
               "TextAlign": "CENTER",
               "Direction": "rtl",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "PaddingEnabled": true,
                 "PaddingTop": 0,
@@ -200,12 +280,15 @@
         ]
       },
       {
-        "Type": "SECTION",
+        "Id": "",
+        "Name": "sec",
         "Configuration": {
           "BackgroundImage": {
             "BackgroundImageEnabled": false
           },
           "BackgroundColor": "#ACA7A5",
+          "RoundedCorners": 0,
+          "BodyColor": "transparent",
           "Spacing": {
             "MarginEnabled": true,
             "MarginTop": 20,
@@ -245,6 +328,8 @@
         },
         "Objects": [
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<h2 style=\"font-size:40px;color:#FAFAFA\">הזמינו לילה<br>בהוטל מונטיפיורי</h2>",
@@ -268,16 +353,34 @@
                     "BorderStyle": "SOLID"
                   }
                 ]
+              },
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
               }
             }
           },
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<h3 style=\"color:#FAFAFA\">וקבלו מאיתנו גיפט קארד על סך 200 שח</h3>",
               "Width": "100%",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "MarginEnabled": true,
                 "MarginTop": 0,
@@ -286,12 +389,28 @@
             }
           },
           {
+            "Id": "",
+            "Name": "",
             "Type": "TEXT",
             "Configuration": {
               "TextContent": "<p style=\"color:#FAFAFA\">למימוש בכל אחד ממקומות הקבוצה</p>",
               "Width": "100%",
               "TextAlign": "CENTER",
-              "Direction": "RTL"
+              "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
+              "Spacing": {
+                "MarginEnabled": false,
+                "PaddingEnabled": false
+              }
             }
           },
           {
@@ -308,11 +427,17 @@
                 "MarginTop": 40,
                 "MarginBottom": 40
               },
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
               "Link": {
                 "LinkEnabled": true,
                 "Url": "https://app.brevo.com/",
                 "LinkTitle": "bravo"
-              }     
+              },
+              "BlockAlignment": "center",
+              "BackgroundColor": "transparent"
             }
           },
           {
@@ -324,6 +449,16 @@
               "Width": "500px",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "BackgroundColor": "transparent",
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "MarginEnabled": true,
                 "MarginTop": 0,
@@ -341,6 +476,15 @@
               "Width": "130px",
               "TextAlign": "CENTER",
               "Direction": "RTL",
+              "BlockAlignment": "center",
+              "RoundedCorners": 0,
+              "Border": {
+                "BorderEnabled": false,
+                "Sides": null
+              },
+              "BackgroundImage": {
+                "BackgroundImageEnabled": false
+              },
               "Spacing": {
                 "PaddingEnabled": true,
                 "PaddingTop": 20,
@@ -349,7 +493,7 @@
                 "PaddingLeft": 20,
                 "MarginEnabled": true,
                 "MarginTop": 20,
-                "MarginBottom": 20      
+                "MarginBottom": 20
               }
             }
           }
