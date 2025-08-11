@@ -51,7 +51,7 @@
         "Direction": "ltr"
       },
       "Spacing": {
-        "PaddingEnabled": true,
+        "PaddingEnabled": false,
         "PaddingTop": 0,
         "PaddingBottom": 0
       },

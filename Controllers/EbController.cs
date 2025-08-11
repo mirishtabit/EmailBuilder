@@ -38,7 +38,7 @@ namespace EmailBuilder
         public IHttpActionResult BuildExample()
         {
             MainGeneratorService _mainGeneratorService = new MainGeneratorService();
-            EbLayout layout = _mainGeneratorService.BuildElementClasses();
+            EbLayout layout = _mainGeneratorService.BuildElementClasses_CafeLargo();
             if (layout == null)
                 return BadRequest("Layout is null, something went wrong.");
 
