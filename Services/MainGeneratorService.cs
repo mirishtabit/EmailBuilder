@@ -15,7 +15,7 @@ using System.IO;
 
 namespace EmailBuilder.Services
 {
-    public class MainGeneratorService : IMainGeneratorService
+    public class MainGeneratorService
     {
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace EmailBuilder.Services
         /// Builds a sample EbLayout object with sections and elements, 
         /// demonstrating how to construct a layout in code for testing or example purposes.
         /// </summary>
-        public void BuildElementClasses()
+        public EbLayout BuildElementClasses()
         {
             // building the head container
             EbLayout layout = new EbLayout();
@@ -193,6 +193,8 @@ namespace EmailBuilder.Services
             });
             
             layout.Sections = sections;
+
+            return layout;
         }
     }
 }

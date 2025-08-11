@@ -26,7 +26,6 @@ namespace EmailBuilder
             builder.RegisterApiControllers(typeof(WebApiApplication).Assembly);
 
             // Register your services (replace with your actual implementations)
-            builder.RegisterType<MainGeneratorService>().As<IMainGeneratorService>().InstancePerRequest();
             builder.RegisterType<MailTrapService>().As<IMailTrapService>().InstancePerRequest();
             builder.RegisterType<MailService>().As<IMailService>().InstancePerRequest();
 

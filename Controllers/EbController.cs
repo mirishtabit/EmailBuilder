@@ -1,4 +1,5 @@
 ﻿using EmailBuilder.Common;
+using EmailBuilder.Extensions;
 using EmailBuilder.Models.Blocks;
 using EmailBuilder.Services;
 using EmailBuilder.Services.Interfaces;
@@ -18,11 +19,9 @@ namespace EmailBuilder
         private readonly IMainGeneratorService _mainGeneratorService;
         private readonly IMailTrapService _mailTrapService;
 
-        public EbController(IMainGeneratorService mainGeneratorService,
-                            IMailService MailService,
+        public EbController(IMailService MailService,
                             IMailTrapService mailTrapService)
         {
-            _mainGeneratorService = mainGeneratorService;
             _mailTrapService = mailTrapService;
         }
 
@@ -38,8 +37,22 @@ namespace EmailBuilder
         /// This endpoint is an example of building the magazin via element classes.
         public IHttpActionResult BuildExample()
         {
-            _mainGeneratorService.BuildElementClasses();
-            return Ok();
+            MainGeneratorService _mainGeneratorService = new MainGeneratorService();
+            EbLayout layout = _mainGeneratorService.BuildElementClasses();
+            if (layout == null)
+                return BadRequest("Layout is null, something went wrong.");
+
+            // Render the layout to HTML
+            string FinalHtmlResult = layout.GenerateElementsHtml();
+            
+            if (string.IsNullOrEmpty(FinalHtmlResult))
+                return BadRequest("HTML generation failed, the result is empty.");
+
+            var msg = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent(FinalHtmlResult, Encoding.UTF8, "text/html")
+            };
+            return ResponseMessage(msg);
         }
 
 
