@@ -19,56 +19,7 @@ namespace EmailBuilder.Services
     {
 
         /// <summary>
-        /// Renders the HTML representation of the specified layout, including its structure and inline styles.
-        /// </summary>
-        /// <remarks>This method generates an HTML document based on the provided layout, including its
-        /// structure and inline styles. The layout's configuration and resources are injected into the document to
-        /// ensure proper rendering.</remarks>
-        /// <param name="layout">The layout to render as HTML. Must not be null.</param>
-        /// <returns>A string containing the complete HTML document for the specified layout.</returns>
-        public string RenderLayoutHtml(EbLayout layout)
-        {
-            HtmlDocument doc = RenderHtmlSkeleton();
 
-            /// Add generated elements into the body
-            var bodyHtml = doc.DocumentNode.SelectSingleNode("//body");
-            if (bodyHtml != null)
-            {
-                bodyHtml.InnerHtml = layout.RenderLayoutHtml();
-                layout.InjectInlineStyle(ref doc);
-            }
-
-
-            return doc.DocumentNode.OuterHtml;
-        }
-
-
-        /// <summary>
-        /// Loads and parses an HTML skeleton file into HtmlDocument object.
-        /// </summary>
-        /// <remarks>The method retrieves the HTML skeleton from a predefined file path and parses it into
-        /// an HtmlDocument instance. The file must exist at the specified location, and its contents
-        /// must be valid HTML.</remarks>
-        /// <returns>An <see cref="HtmlDocument"/> object representing the parsed HTML skeleton.</returns>
-        public static HtmlDocument RenderHtmlSkeleton()
-        {
-            var path = System.Web.Hosting.HostingEnvironment.MapPath($"~/Static/EmailWrapperNew.html");
-
-            if (!File.Exists(path))
-                throw new FileNotFoundException("HTML skeleton file not found.", path);
-
-            string htmlStr = File.ReadAllText(path);
-
-            if (string.IsNullOrWhiteSpace(htmlStr))
-                throw new InvalidDataException($"HTML skeleton file at '{path}' is empty.");
-
-            var doc = new HtmlDocument();
-            doc.LoadHtml(htmlStr);
-
-            return doc;
-        }
-
-        /// <summary>
         /// Builds a sample EbLayout object with sections and elements, 
         /// demonstrating how to construct a layout in code for testing or example purposes.
         /// </summary>

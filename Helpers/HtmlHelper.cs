@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -73,7 +75,31 @@ namespace EmailBuilder.Helpers
                 Dict.Add(propKey, propValue);
 
         }
+
+
+        /// <summary>
+        /// Loads and parses an HTML skeleton file into HtmlDocument object.
+        /// </summary>
+        /// <returns>An <see cref="HtmlDocument"/> object representing the parsed HTML skeleton.</returns>
+        public static HtmlDocument RenderHtmlSkeleton()
+        {
+            var path = System.Web.Hosting.HostingEnvironment.MapPath($"~/Static/EmailWrapperNew.html");
+
+            if (!File.Exists(path))
+                throw new FileNotFoundException("HTML skeleton file not found.", path);
+
+            string htmlStr = File.ReadAllText(path);
+
+            if (string.IsNullOrWhiteSpace(htmlStr))
+                throw new InvalidDataException($"HTML skeleton file at '{path}' is empty.");
+
+            var doc = new HtmlDocument();
+            doc.LoadHtml(htmlStr);
+
+            return doc;
+        }
+
     }
-    
+
 }
 

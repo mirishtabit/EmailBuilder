@@ -36,7 +36,7 @@ namespace EmailBuilder.Models.Configurations
         #endregion
 
         #region element style helpers
-        public string Td1Style
+        internal string Td1Style
         {
             get
             {
@@ -46,27 +46,27 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string Tbl1Style
+        internal string Tbl1Style
         {
             get
             {
                 string styles = $"{BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {Width.WidthStyle}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {Width.WidthAttr} {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
 
-        public string Tbl2Style
+        internal string Tbl2Style
         {
             get
             {
                 string styles = $"{BackColorStyle(BodyColor)} {RoundedCornersStyle(RoundedCorners)} {Border.GetHtmlStyle} {Width.WidthTblStyle}";
-                string attributes = $"{BackColorAttr(BodyColor)} {Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string attributes = $"{BackColorAttr(BodyColor)} {Width.WidthAttr} {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
 
-        public string Td2Style
+        internal string Td2Style
         {
             get
             {
@@ -75,7 +75,7 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string Td3Style
+        internal string Td3Style
         {
             get
             {

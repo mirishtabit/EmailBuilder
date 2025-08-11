@@ -51,15 +51,16 @@ namespace EmailBuilder.Models.Blocks
 
         public string IdAttr
         {
-            get { 
-               return !string.IsNullOrEmpty(Id) ? Id : string.Empty;
+            get 
+            { 
+               return !string.IsNullOrEmpty(Id) ? $"id=\"{Id}\"" : string.Empty;
             }
         }
 
         public string NameAttr
         {
             get
-                {
+            {
                 return !string.IsNullOrEmpty(Name) ? $"name=\"{Name}\"" : string.Empty;
             }
         }

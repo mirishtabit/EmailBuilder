@@ -14,7 +14,7 @@ namespace EmailBuilder.Extensions
         /// Must contain at least one section, and each section at least one object.
         /// </summary>
         /// <returns>A <see cref="string"/> containing the complete HTML representation of the layout and its sections.</returns>
-        public static string RenderLayoutHtml(this EbLayout layout)
+        public static string GenerateElementsHtml(this EbLayout layout)
         {
             if (layout == null)
                 throw new ArgumentNullException(nameof(layout));

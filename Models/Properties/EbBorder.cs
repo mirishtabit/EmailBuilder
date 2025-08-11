@@ -51,7 +51,7 @@ namespace EmailBuilder.Models.HtmlProperties
             };
         }
 
-        public string GetHtmlStyle
+        internal string GetHtmlStyle
         {
             get
             {

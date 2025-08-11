@@ -39,13 +39,14 @@ namespace EmailBuilder.Models.HtmlProperties
         }
 
         private string SafeUrl
-        {   get
+        {  
+            get
             {
                 return string.IsNullOrEmpty(ImageUrl) ? string.Empty : ImageUrl.Replace("'", "\\'");
             }
         }
 
-        public string GetHtmlStyle
+        internal string GetHtmlStyle
         {
             get
             {

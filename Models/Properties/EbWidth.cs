@@ -60,7 +60,7 @@ namespace EmailBuilder.Models.Properties
 
         #region element style helpers
 
-        public string WidthNumericValue
+        internal string WidthNumericValue
         {
             get
             {
@@ -68,14 +68,14 @@ namespace EmailBuilder.Models.Properties
             }
         }
 
-        public string WidthStyle
+        internal string WidthStyle
         {
             get
             {
                 return $"width:{Width};";
             }
         }
-        public string WidthTblStyle
+        internal string WidthTblStyle
         {
             get
             {
@@ -83,7 +83,7 @@ namespace EmailBuilder.Models.Properties
             }
         }
 
-        public string WidthAttr
+        internal string WidthAttr
         {
             get
             {

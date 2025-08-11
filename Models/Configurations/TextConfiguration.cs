@@ -45,7 +45,7 @@ namespace EmailBuilder.Models.Configurations
         #endregion
 
         #region element style helpers
-        public string DirectionStyle
+        internal string DirectionStyle
         {
             get
             {
@@ -53,7 +53,7 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string TextAlignStyle
+        internal string TextAlignStyle
         {
             get
             {
@@ -61,7 +61,7 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string Td1Style
+        internal string Td1Style
         {
             get
             {
@@ -71,7 +71,7 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string Td2Style
+        internal string Td2Style
         {
             get
             {
@@ -81,14 +81,14 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string Tbl1Style
+        internal string Tbl1Style
         {
             get
             {
                 string tableCollapseBorder = "border-collapse: separate;";
 
                 string styles = $"{Width.WidthStyle} {Border.GetHtmlStyle} {BackgroundImage.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {RoundedCornersStyle(RoundedCorners)} {tableCollapseBorder}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {Width.WidthAttr} {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }

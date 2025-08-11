@@ -41,21 +41,21 @@ namespace EmailBuilder.Models.Configurations
 
         #region element style helpers
 
-        public string ImageUrlAttr
+        internal string ImageUrlAttr
         {
             get
             {
                 return $"src=\"{ImageUrl}\"";
             }    
         }
-        public string AltTextAttr
+        internal string AltTextAttr
         {
             get
             {
                 return $"alt=\"{AltText}\"";
             }
         }
-        public string Td1Style
+        internal string Td1Style
         {
             get
             {
@@ -65,7 +65,7 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string Td2Style
+        internal string Td2Style
         {
             get
             {
@@ -75,18 +75,18 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string TblStyle
+        internal string TblStyle
         {
             get
             {
                 string tableCollapseBorder = "border-collapse: separate;";
                 string styles = $"{Border.GetHtmlStyle} {BackColorStyle(BackgroundColor)} {RoundedCornersStyle(RoundedCorners)} {tableCollapseBorder} {Width.WidthTblStyle}";
-                string attributes = $"{Width.WidthAttr} {TableMsoAttributes} role=\"presentation\"";
+                string attributes = $"{Width.WidthAttr} {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
 
-        public string InnerStyle
+        internal string InnerStyle
         {
             get
             {

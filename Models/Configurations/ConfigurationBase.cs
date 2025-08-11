@@ -17,7 +17,7 @@ namespace EmailBuilder.Models.Configurations
         #endregion
         #region element style helpers
 
-        public string BlockAlignmentAttr(Position BlockAlignment)
+        protected string BlockAlignmentAttr(Position BlockAlignment)
         {
            return $"align='{BlockAlignment.ToString().ToLower()}'";
         }
@@ -31,7 +31,7 @@ namespace EmailBuilder.Models.Configurations
         {
             get
             {
-                return "cellpadding=\"0\" cellspacing=\"0\" border=\"0\"";
+                return "cellpadding=\"0\" cellspacing=\"0\" border=\"0\" role=\"presentation\"";
             }
         }
 

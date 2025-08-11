@@ -6,6 +6,6 @@ namespace EmailBuilder.Services.Interfaces
     public interface IMainGeneratorService
     {
         void BuildElementClasses();       
-        string RenderLayoutHtml(EbLayout layout);
+     
     }
 }

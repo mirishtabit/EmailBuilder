@@ -1,8 +1,12 @@
-﻿using EmailBuilder.Models.Configurations;
+﻿using EmailBuilder.Extensions;
+using EmailBuilder.Models.Configurations;
 using EmailBuilder.Models.HtmlObjects;
+using EmailBuilder.Services;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net.Configuration;
+using System.Web.Mvc;
 
 namespace EmailBuilder.Models.Blocks
 {
@@ -42,7 +46,9 @@ namespace EmailBuilder.Models.Blocks
 
         protected override string RenderContainer(string innerHtml)
         {
-            return $"<{ElementTagName} {Configuration.InnerStyle}>{innerHtml}</{ElementTagName}>";
+            return $"{Configuration.TableMsoStart}"+
+                   $"<{ElementTagName} {Configuration.InnerStyle}>{innerHtml}</{ElementTagName}>"+
+                   $"{Configuration.TableMsoEnd}";
         }
 
         protected override string RenderOuterElementHtml(string elemStr)
@@ -59,10 +65,33 @@ namespace EmailBuilder.Models.Blocks
         /// Applies layout default style from to the provided HTML document.
         /// </summary>
         /// <param name="bodyHtml"></param>
-        public void InjectInlineStyle(ref HtmlDocument bodyHtml)
+        private void InjectInlineStyle(ref HtmlDocument bodyHtml)
         {
            Configuration.InjectInlineStyle(ref bodyHtml);
         }
+
+        /// <summary>
+        /// Renders the HTML representation of the specified layout, including its structure and inline styles.
+        /// </summary>
+        /// <remarks>This method generates an HTML document based on the provided layout, including its
+        /// structure and inline styles. The layout's configuration and resources are injected into the document to
+        /// ensure proper rendering.</remarks>
+        /// <param name="layout">The layout to render as HTML. Must not be null.</param>
+        /// <returns>A string containing the complete HTML document for the specified layout.</returns>
+        public string RenderLayoutHtml()
+        {
+            HtmlDocument doc = Helpers.HtmlHelper.RenderHtmlSkeleton();
+
+            /// Add generated elements into the body
+            var bodyHtml = doc.DocumentNode.SelectSingleNode("//body");
+            if (bodyHtml != null)
+            {
+                bodyHtml.InnerHtml = this.GenerateElementsHtml();
+                InjectInlineStyle(ref doc);
+            }
+            return doc.DocumentNode.OuterHtml;
+        }
+
 
     }
 

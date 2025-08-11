@@ -40,17 +40,17 @@ namespace EmailBuilder.Models.Configurations
 
         #region element style helpers
 
-        public string Tbl1Style
+        internal string Tbl1Style
         {
             get
             {
                 string styles = $"{BackColorStyle(BackgroundColor)} {BackgroundImage.GetHtmlStyle}";
-                string attributes = $"{BackColorAttr(BackgroundColor)} {TableMsoAttributes} width=\"100%\" align=\"center\" role=\"presentation\"";
+                string attributes = $"{BackColorAttr(BackgroundColor)} {TableMsoAttributes} width=\"100%\" align=\"center\"";
                 return $"style=\"{styles}\" {attributes}";
             }
         }
 
-        public string Td1Style
+        internal string Td1Style
         {
             get
             {
@@ -61,13 +61,31 @@ namespace EmailBuilder.Models.Configurations
             }
         }
 
-        public string InnerStyle
+        internal string InnerStyle
         {
             get
             {
                 string styles = $"{Width.WidthTblStyle} {BackColorStyle(BodyColor)}";
-                string attributes = $"{BackColorAttr(BodyColor)} {Width.WidthAttr} {TableMsoAttributes}";
+                string attributes = $"{BackColorAttr(BodyColor)} width=\"100%\" {TableMsoAttributes}";
                 return $"style=\"{styles}\" {attributes}";
+            }
+        }
+
+        internal string TableMsoStart
+        {
+            get
+            {
+                return "<!--[if mso]>" +
+                          $"<table {TableMsoAttributes} {Width.WidthAttr} align=\"center\">" +
+                        "<![endif]-->";
+            }
+        }
+
+        internal string TableMsoEnd
+        {
+            get
+            {
+                return "<!--[if mso]></table><![endif]-->";
             }
         }
 

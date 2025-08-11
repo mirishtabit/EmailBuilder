@@ -64,7 +64,7 @@ namespace EmailBuilder
             if (root == null || root.Layout == null)
                 return BadRequest("Invalid JSON structure, or layout dont exists.");
 
-            string FinalHtmlResult = _mainGeneratorService.RenderLayoutHtml(root.Layout);
+            string FinalHtmlResult = root.Layout.RenderLayoutHtml();
 
             // Send the HTML result via email
             if (toMail)
